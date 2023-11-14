@@ -9,6 +9,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
+import i18n from './localization'
+
 library.add(
     faCaretDown
 )
@@ -17,4 +19,5 @@ createApp(App)
     .component(SystemConstants.DEFAULT_LAYOUT, DefaultLayout)
     .component('font-awesome-icon', FontAwesomeIcon)
     .use(router)
+    .use(i18n)
     .mount('#app')

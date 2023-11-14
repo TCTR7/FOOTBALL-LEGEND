@@ -10,8 +10,7 @@
                 <div class="nav-content">
                     <ul>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Trang
-                                chủ</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('home')}}</router-link>
                         </div>
                         <div class="nav-content-item nav-dropdown">
                             <Dropdown
@@ -24,23 +23,20 @@
                             />
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Bảng
-                                giá</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_pricing')}}</router-link>
                         </div>
                         <div class="nav-content-item">
                             <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">Blog</router-link>
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_blog')}}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Mua
-                                sắm</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_shopping')}}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Đăng
-                                nhập</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_login')}}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <button class="register-btn btn item-content">Đăng ký</button>
+                            <button class="register-btn btn item-content">{{$t('nav_register')}}</button>
                         </div>
                         <div class="nav-content-item">
                             <div class="inform item-content">Thông báo</div>
@@ -124,6 +120,11 @@ export default {
                         display: flex;
                         justify-content: center;
                         align-items: center;
+
+                        &:hover {
+                            color: rgb(165, 162, 162);
+                            opacity: .5;
+                        }
 
                         .item-content {
                             display: flex;

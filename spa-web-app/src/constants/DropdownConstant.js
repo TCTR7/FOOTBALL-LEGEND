@@ -1,6 +1,6 @@
 module.exports = Object.freeze({
     TOURNAMENT_MENU: {
-        title: "Giải đấu",
+        title: "nav_tournament",
         menu: [
             {
                 name: "Tạo giải đấu",
@@ -13,7 +13,7 @@ module.exports = Object.freeze({
         ],
     },
     TEAM_MENU: {
-        title: "Đội thi đấu",
+        title: "nav_team",
         menu: [
             {
                 name: "Tạo đội",

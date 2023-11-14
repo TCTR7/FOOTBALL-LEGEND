@@ -1,7 +1,7 @@
 <template>
     <div class="dropdown" ref="dropdownRef" @click="showDropdownMenu">
         <div class="dropdown-title box-center">
-            <p class="box-center" style="white-space: nowrap;">{{ dropdownInfos.title }}</p>
+            <p class="box-center" style="white-space: nowrap;">{{ $t(dropdownInfos.title) }}</p>
             <font-awesome-icon :icon="['fa', 'caret-down']" />
         </div>
         <ul class="dropdown-menu" v-if="isVisibleMenu">
