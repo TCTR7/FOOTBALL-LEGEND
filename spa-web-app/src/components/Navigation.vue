@@ -10,25 +10,38 @@
                 <div class="nav-content">
                     <ul>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Trang chủ</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Trang
+                                chủ</router-link>
                         </div>
                         <div class="nav-content-item nav-dropdown">
-                            <Dropdown />
+                            <Dropdown
+                                :isShowMenu="isVisibleTournamentMenu"
+                                :infos="dropdownConstant.TOURNAMENT_MENU"
+                                :onShowMenuHandle="onShowTournamentMenuHandle"
+                            />
                         </div>
                         <div class="nav-content-item nav-dropdown">
-                            <Dropdown />
+                            <Dropdown
+                                :isShowMenu="isVisibleTeamMenu"
+                                :infos="dropdownConstant.TEAM_MENU"
+                                :onShowMenuHandle="onShowTeamMenuHandle"
+                            />
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Bảng giá</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Bảng
+                                giá</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Blog</router-link>
+                            <router-link class="link item-content"
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">Blog</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Mua sắm</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Mua
+                                sắm</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Đăng nhập</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">Đăng
+                                nhập</router-link>
                         </div>
                         <div class="nav-content-item">
                             <button class="register-btn btn item-content">Đăng ký</button>
@@ -47,7 +60,9 @@
 </template>
 <script>
 import RouterConstants from "@/constants/RouterConstants"
+import DropdownConstant from "@/constants/DropdownConstant"
 import Dropdown from "@/components/Dropdown.vue"
+import { ref } from 'vue'
 export default {
     name: 'navigation-component',
     components: {
@@ -55,8 +70,27 @@ export default {
     },
     setup() {
         const routerConstant = RouterConstants
+        const dropdownConstant = DropdownConstant
+        const isVisibleTournamentMenu = ref(false)
+        const isVisibleTeamMenu = ref(false)
+
+        function onShowTournamentMenuHandle() {
+            isVisibleTournamentMenu.value = !isVisibleTournamentMenu.value
+            isVisibleTeamMenu.value = false
+        }
+
+        function onShowTeamMenuHandle() {
+            isVisibleTeamMenu.value = !isVisibleTeamMenu.value
+            isVisibleTournamentMenu.value = false
+        }
+
         return {
-            routerConstant
+            routerConstant,
+            isVisibleTournamentMenu,
+            isVisibleTeamMenu,
+            dropdownConstant,
+            onShowTournamentMenuHandle,
+            onShowTeamMenuHandle
         }
     }
 }
@@ -83,6 +117,7 @@ export default {
                 height: 100%;
                 width: 150px;
                 margin-left: 20px;
+
                 .branding-icon {
                     width: 100%;
                     height: 100%;
@@ -124,9 +159,9 @@ export default {
                             vertical-align: middle;
                             white-space: nowrap;
                             background-color: #676ec1;
-                            background-image: linear-gradient(to right top, #9467c1, 
-                            #8c69c2, #846ac2, #7b6cc2, #736dc2, #736dc2, #736dc2,
-                            #736dc2, #7c6cc2, #846ac2, #8d69c2, #9567c1) !important;
+                            background-image: linear-gradient(to right top, #9467c1,
+                                    #8c69c2, #846ac2, #7b6cc2, #736dc2, #736dc2, #736dc2,
+                                    #736dc2, #7c6cc2, #846ac2, #8d69c2, #9567c1) !important;
                             font-size: 14px;
                         }
                     }
@@ -151,5 +186,4 @@ export default {
         border-width: 0 0 1px;
         height: 64px;
     }
-}
-</style>
+}</style>

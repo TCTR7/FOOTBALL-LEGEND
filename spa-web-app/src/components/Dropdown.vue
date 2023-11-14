@@ -1,25 +1,72 @@
 <template>
-    <div class="dropdown">
+    <div class="dropdown" ref="dropdownRef" @click="showDropdownMenu">
         <div class="dropdown-title box-center">
-            <p class="box-center" style="white-space: nowrap;">Giải đấu</p>
+            <p class="box-center" style="white-space: nowrap;">{{ dropdownInfos.title }}</p>
             <font-awesome-icon :icon="['fa', 'caret-down']" />
         </div>
-        <ul class="dropdown-menu">
-            <router-link class="item link" :to="{name: 'home'}">item1</router-link> 
-            <router-link class="item link" :to="{name: 'home'}">item1</router-link> 
-            <router-link class="item link" :to="{name: 'home'}">item1</router-link> 
-            <router-link class="item link" :to="{name: 'home'}">item1</router-link> 
-            <router-link class="item link" :to="{name: 'home'}">item1</router-link> 
-            <router-link class="item link" :to="{name: 'home'}">item1</router-link> 
+        <ul class="dropdown-menu" v-if="isVisibleMenu">
+            <router-link class="item link" v-for="(item, index) in dropdownInfos.menu" :key="index"
+                :to="{ path: item.path }">{{ item.name }}</router-link>
         </ul>
     </div>
 </template>
 <script>
+import { ref, watch, toRefs } from "vue"
 export default {
-    name: 'dropdown-component'
+    name: 'dropdown-component',
+    props: {
+        isShowMenu: Boolean,
+        infos: Object,
+        onShowMenuHandle: Function
+    },
+    setup(props) {
+        const { isShowMenu, infos } = toRefs(props);
+        const dropdownRef = ref(null);
+
+        const dropdownInfos = ref(infos.value)
+        const isVisibleMenu = ref(isShowMenu.value)
+
+        function showDropdownMenu(event) {
+            event.preventDefault()
+            props.onShowMenuHandle()
+        }
+
+        function closeDropdowns(event) {
+            event.preventDefault()
+            if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
+                isVisibleMenu.value = false
+            }
+        }
+
+        watch(() => props.isShowMenu, (newValue) => {
+            isVisibleMenu.value = newValue;
+        });
+
+        watch(() => props.infos, (newValue) => {
+            dropdownInfos.value = newValue;
+        });
+
+        return {
+            isVisibleMenu,
+            dropdownInfos,
+            dropdownRef,
+            closeDropdowns,
+            showDropdownMenu
+        }
+    },
+
+    mounted() {
+        document.addEventListener('click', this.closeDropdowns);
+    },
+
+    beforeUnmount() {
+        document.removeEventListener('click', this.closeDropdowns);
+    }
 }
 </script>
 <style lang="scss" scoped>
+@import "../../public/assets/scss/common.scss";
+
 .dropdown {
     display: block;
 
@@ -33,17 +80,31 @@ export default {
         flex-direction: column;
         overflow: auto;
         position: absolute;
-        background-color: rgb(217, 217, 230);
+        background-clip: padding-box;
+        background-color: #fff;
+        border: none;
+        box-shadow: 0 1px 2px #d8d8d8;
+        border-radius: 4px;
         margin-top: 10px;
         height: auto;
         max-height: 200px;
         left: -10px;
+        min-width: 160px;
+        padding: 5px;
+        text-align: left;
+        top: 100%;
+        z-index: 1000;
 
         .item {
             display: block;
             color: black;
-            padding: 5px 0;
-            border-bottom: 1px solid #606060;
+            padding: 10px;
+            white-space: nowrap;
+            background-color: transparent;
+
+            &:hover {
+                background-color: $main-color;
+            }
         }
     }
 }
