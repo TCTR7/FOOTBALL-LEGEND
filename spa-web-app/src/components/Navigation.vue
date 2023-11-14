@@ -15,16 +15,12 @@
                         </div>
                         <div class="nav-content-item nav-dropdown">
                             <Dropdown
-                                :isShowMenu="isVisibleTournamentMenu"
                                 :infos="dropdownConstant.TOURNAMENT_MENU"
-                                :onShowMenuHandle="onShowTournamentMenuHandle"
                             />
                         </div>
                         <div class="nav-content-item nav-dropdown">
                             <Dropdown
-                                :isShowMenu="isVisibleTeamMenu"
                                 :infos="dropdownConstant.TEAM_MENU"
-                                :onShowMenuHandle="onShowTeamMenuHandle"
                             />
                         </div>
                         <div class="nav-content-item">
@@ -62,7 +58,6 @@
 import RouterConstants from "@/constants/RouterConstants"
 import DropdownConstant from "@/constants/DropdownConstant"
 import Dropdown from "@/components/Dropdown.vue"
-import { ref } from 'vue'
 export default {
     name: 'navigation-component',
     components: {
@@ -71,26 +66,10 @@ export default {
     setup() {
         const routerConstant = RouterConstants
         const dropdownConstant = DropdownConstant
-        const isVisibleTournamentMenu = ref(false)
-        const isVisibleTeamMenu = ref(false)
-
-        function onShowTournamentMenuHandle() {
-            isVisibleTournamentMenu.value = !isVisibleTournamentMenu.value
-            isVisibleTeamMenu.value = false
-        }
-
-        function onShowTeamMenuHandle() {
-            isVisibleTeamMenu.value = !isVisibleTeamMenu.value
-            isVisibleTournamentMenu.value = false
-        }
 
         return {
             routerConstant,
-            isVisibleTournamentMenu,
-            isVisibleTeamMenu,
-            dropdownConstant,
-            onShowTournamentMenuHandle,
-            onShowTeamMenuHandle
+            dropdownConstant
         }
     }
 }

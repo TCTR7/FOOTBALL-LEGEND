@@ -15,20 +15,18 @@ import { ref, watch, toRefs } from "vue"
 export default {
     name: 'dropdown-component',
     props: {
-        isShowMenu: Boolean,
-        infos: Object,
-        onShowMenuHandle: Function
+        infos: Object
     },
     setup(props) {
-        const { isShowMenu, infos } = toRefs(props);
+        const { infos } = toRefs(props);
         const dropdownRef = ref(null);
 
         const dropdownInfos = ref(infos.value)
-        const isVisibleMenu = ref(isShowMenu.value)
+        const isVisibleMenu = ref(false)
 
         function showDropdownMenu(event) {
             event.preventDefault()
-            props.onShowMenuHandle()
+            isVisibleMenu.value = !isVisibleMenu.value
         }
 
         function closeDropdowns(event) {
@@ -37,10 +35,6 @@ export default {
                 isVisibleMenu.value = false
             }
         }
-
-        watch(() => props.isShowMenu, (newValue) => {
-            isVisibleMenu.value = newValue;
-        });
 
         watch(() => props.infos, (newValue) => {
             dropdownInfos.value = newValue;
