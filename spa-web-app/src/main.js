@@ -5,20 +5,16 @@ import App from './App.vue'
 import DefaultLayout from './layouts/Default.vue'
 import SystemConstants from './constants/SystemConstants'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon, library } from './fontawesome/index'
 
 import CountryFlag from 'vue-country-flag-next'
 
 import i18n from './localization'
 
-library.add(
-    faCaretDown
-)
 
-createApp(App)
-    .component(SystemConstants.DEFAULT_LAYOUT, DefaultLayout)
+const app = createApp(App);
+app.config.globalProperties.$fontAwesome = { library };
+app.component(SystemConstants.DEFAULT_LAYOUT, DefaultLayout)
     .component('font-awesome-icon', FontAwesomeIcon)
     .component('country-flag-icon', CountryFlag)
     .use(router)

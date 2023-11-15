@@ -10,8 +10,8 @@
                 <div class="nav-content">
                     <ul>
                         <div class="nav-content-item">
-                            <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('home') }}</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                                $t('home') }}</router-link>
                         </div>
                         <div class="nav-content-item nav-dropdown">
                             <Dropdown :infos="dropdownConstant.TOURNAMENT_MENU" />
@@ -20,30 +20,29 @@
                             <Dropdown :infos="dropdownConstant.TEAM_MENU" />
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_pricing') }}</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                                $t('nav_pricing') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_blog') }}</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                                $t('nav_blog') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_shopping') }}</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                                $t('nav_shopping') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_login') }}</router-link>
+                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                                $t('nav_login') }}</router-link>
                         </div>
                         <div class="nav-content-item">
                             <button class="register-btn btn item-content">{{ $t('nav_register') }}</button>
                         </div>
-                        <div class="nav-content-item">
-                            <div class="inform item-content">Thông báo</div>
+                        <div class="inform">
+                            <font-awesome-icon :icon="['fa', 'bell']" style="color: yellow;"/>
+                            <font-awesome-icon :icon="['fa', 'caret-down']" class="caret-down" />
                         </div>
-                        <div class="nav-content-item nav-dropdown">
-                            <LanguagueDropdown />
-                        </div>
+                        <LanguagueDropdown class="nav-dropdown" />
                     </ul>
                 </div>
             </div>
@@ -114,6 +113,24 @@ export default {
 
                     .nav-dropdown {
                         position: relative;
+                    }
+
+                    .inform {
+                        max-width: 35px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .caret-down {
+                            width: 20px;
+                            margin-left: 10px;
+
+                            &:hover {
+                                cursor: pointer;
+                                color: rgb(165, 162, 162);
+                                opacity: .5;
+                            }
+                        }
                     }
 
                     .nav-content-item {
