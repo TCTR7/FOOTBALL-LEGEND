@@ -10,39 +10,39 @@
                 <div class="nav-content">
                     <ul>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('home')}}</router-link>
+                            <router-link class="link item-content"
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('home') }}</router-link>
                         </div>
                         <div class="nav-content-item nav-dropdown">
-                            <Dropdown
-                                :infos="dropdownConstant.TOURNAMENT_MENU"
-                            />
+                            <Dropdown :infos="dropdownConstant.TOURNAMENT_MENU" />
                         </div>
                         <div class="nav-content-item nav-dropdown">
-                            <Dropdown
-                                :infos="dropdownConstant.TEAM_MENU"
-                            />
-                        </div>
-                        <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_pricing')}}</router-link>
+                            <Dropdown :infos="dropdownConstant.TEAM_MENU" />
                         </div>
                         <div class="nav-content-item">
                             <router-link class="link item-content"
-                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_blog')}}</router-link>
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_pricing') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_shopping')}}</router-link>
+                            <router-link class="link item-content"
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_blog') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{$t('nav_login')}}</router-link>
+                            <router-link class="link item-content"
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_shopping') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <button class="register-btn btn item-content">{{$t('nav_register')}}</button>
+                            <router-link class="link item-content"
+                                :to="{ name: routerConstant.HOME_VIEW_NAME }">{{ $t('nav_login') }}</router-link>
+                        </div>
+                        <div class="nav-content-item">
+                            <button class="register-btn btn item-content">{{ $t('nav_register') }}</button>
                         </div>
                         <div class="nav-content-item">
                             <div class="inform item-content">Thông báo</div>
                         </div>
-                        <div class="nav-content-item">
-                            <div class="language item-content">Ngôn ngữ</div>
+                        <div class="nav-content-item nav-dropdown">
+                            <LanguagueDropdown />
                         </div>
                     </ul>
                 </div>
@@ -54,10 +54,12 @@
 import RouterConstants from "@/constants/RouterConstants"
 import DropdownConstant from "@/constants/DropdownConstant"
 import Dropdown from "@/components/Dropdown.vue"
+import LanguagueDropdown from "./LanguagueDropdown.vue"
 export default {
     name: 'navigation-component',
     components: {
-        Dropdown
+        Dropdown,
+        LanguagueDropdown
     },
     setup() {
         const routerConstant = RouterConstants
@@ -121,15 +123,15 @@ export default {
                         justify-content: center;
                         align-items: center;
 
-                        &:hover {
-                            color: rgb(165, 162, 162);
-                            opacity: .5;
-                        }
-
                         .item-content {
                             display: flex;
                             justify-content: center;
                             align-items: center;
+
+                            &:hover {
+                                color: rgb(165, 162, 162);
+                                opacity: .5;
+                            }
                         }
 
                         .register-btn {
@@ -166,4 +168,5 @@ export default {
         border-width: 0 0 1px;
         height: 64px;
     }
-}</style>
+}
+</style>

@@ -3,11 +3,11 @@ module.exports = Object.freeze({
         title: "nav_tournament",
         menu: [
             {
-                name: "Tạo giải đấu",
+                name: "nav_create_tournament",
                 path: "league/create-tournament",
             },
             {
-                name: "Tìm giải đấu",
+                name: "nav_find_tournament",
                 path: "league",
             },
         ],
@@ -29,4 +29,5 @@ module.exports = Object.freeze({
             }
         ],
     },
+    LANGUAGE: ['vn','gb']
 });

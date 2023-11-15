@@ -1,12 +1,13 @@
 // index.js
 import { createI18n } from 'vue-i18n';
-import en from './en';
+import gb from './gb';
 import vn from './vn';
 
 const i18n = createI18n({
-  locale: 'en',
+  legacy: false,
+  locale: 'vn',
   messages: {
-    en,
+    gb, // Engalnd
     vn
   },
 });

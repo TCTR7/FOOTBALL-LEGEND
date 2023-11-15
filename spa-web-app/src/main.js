@@ -9,6 +9,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
+import CountryFlag from 'vue-country-flag-next'
+
 import i18n from './localization'
 
 library.add(
@@ -18,6 +20,7 @@ library.add(
 createApp(App)
     .component(SystemConstants.DEFAULT_LAYOUT, DefaultLayout)
     .component('font-awesome-icon', FontAwesomeIcon)
+    .component('country-flag-icon', CountryFlag)
     .use(router)
     .use(i18n)
     .mount('#app')

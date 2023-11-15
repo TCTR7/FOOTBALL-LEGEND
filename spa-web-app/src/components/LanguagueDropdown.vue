@@ -1,27 +1,29 @@
 <template>
     <div class="dropdown" ref="dropdownRef" @click="showDropdownMenu">
         <div class="dropdown-title box-center">
-            <p class="box-center" style="white-space: nowrap;">{{ $t(dropdownInfos.title) }}</p>
-            <font-awesome-icon :icon="['fa', 'caret-down']" />
+            <country-flag-icon :country="currentLanguage" size="normal" style="margin: 0; padding: 0;"/>
+            <font-awesome-icon :icon="['fa', 'caret-down']" style="width: 20px;"/>
         </div>
         <ul class="dropdown-menu" v-if="isVisibleMenu">
-            <router-link class="item link" v-for="(item, index) in dropdownInfos.menu" :key="index"
-                :to="{ path: item.path }">{{ $t(item.name) }}</router-link>
+            <div class="item box-center language-content" v-for="(item, index) in languages" :key="index" @click="changeLanguage(item)">
+                <country-flag-icon style="margin: 0; padding: 0; min-width: 52px;" :country="item" size="normal"/>
+                <span class="country-name">{{ $t(item) }}</span>
+            </div>
         </ul>
     </div>
 </template>
 <script>
-import { ref, watch, toRefs } from "vue"
+import i18n from '../localization/index'
+import { ref } from "vue"
 export default {
-    name: 'dropdown-component',
-    props: {
-        infos: Object
-    },
-    setup(props) {
-        const { infos } = toRefs(props);
+    name: 'language-dropdown-component',
+    setup() {
+        const currentLanguage = ref(i18n.global.locale)
+        const languages = ref(i18n.global.availableLocales)
+        console.log(currentLanguage.value)
+        console.log(languages.value)
         const dropdownRef = ref(null);
 
-        const dropdownInfos = ref(infos.value)
         const isVisibleMenu = ref(false)
 
         function showDropdownMenu(event) {
@@ -36,16 +38,20 @@ export default {
             }
         }
 
-        watch(() => props.infos, (newValue) => {
-            dropdownInfos.value = newValue;
-        });
+        function changeLanguage(newLanguage) {
+            console.log("newLanguage: ", newLanguage)
+            i18n.global.locale = newLanguage
+            currentLanguage.value = newLanguage
+        }
 
         return {
             isVisibleMenu,
-            dropdownInfos,
+            languages,
             dropdownRef,
+            currentLanguage,
             closeDropdowns,
-            showDropdownMenu
+            showDropdownMenu,
+            changeLanguage
         }
     },
 
@@ -66,12 +72,6 @@ export default {
 
     .dropdown-title {
         cursor: pointer;
-        padding: 2px;
-
-        &:hover {
-            color: rgba(158, 153, 153, 0.2);
-            opacity: .5;
-        }
     }
 
     .dropdown-menu {
@@ -86,9 +86,9 @@ export default {
         border-radius: 4px;
         margin-top: 10px;
         height: auto;
-        max-height: 200px;
-        left: -10px;
-        min-width: 160px;
+        max-height: 500px;
+        right: 2px;
+        min-width: 200px;
         padding: 5px;
         text-align: left;
         top: 100%;
@@ -96,13 +96,23 @@ export default {
 
         .item {
             display: block;
-            color: black;
-            padding: 10px;
+            padding: 5px;
             white-space: nowrap;
             background-color: transparent;
 
             &:hover {
                 background-color: $main-color;
+                cursor: pointer;
+            }
+        }
+        .language-content {
+            display: flex;
+            flex-direction: row;
+
+            .country-name {
+                white-space: nowrap;
+                color: black;
+                text-align: left;
             }
         }
     }
