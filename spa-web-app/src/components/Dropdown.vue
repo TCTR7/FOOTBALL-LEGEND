@@ -1,8 +1,8 @@
 <template>
     <div class="dropdown" ref="dropdownRef" @click="showDropdownMenu">
         <div class="dropdown-title box-center">
-            <p class="box-center" style="white-space: nowrap;">{{ $t(dropdownInfos.title) }}</p>
-            <font-awesome-icon :icon="['fa', 'caret-down']" />
+            <p class="box-center" style="white-space: nowrap;">{{ $t(dropdownInfos.title ? dropdownInfos.title : "Trần Cao Trung") }}</p>
+            <font-awesome-icon :icon="['fa', 'caret-down']" style="margin-left: 5px;"/>
         </div>
         <ul class="dropdown-menu" v-if="isVisibleMenu">
             <router-link class="item link" v-for="(item, index) in dropdownInfos.menu" :key="index"
@@ -86,9 +86,9 @@ export default {
         border-radius: 4px;
         margin-top: 10px;
         height: auto;
-        max-height: 200px;
+        max-height: 300px;
         left: -10px;
-        min-width: 160px;
+        min-width: 200px;
         padding: 5px;
         text-align: left;
         top: 100%;

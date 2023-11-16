@@ -13,5 +13,10 @@ export default {
     nav_find_team: "Tìm đội",
     nav_create_lineup: "Tạo đội hình",
     vn: "Việt Nam",
-    gb: "Anh"
+    gb: "Anh",
+    nav_account_information: "Thông tin tài khoản",
+    nav_account_my_leagues: "Quản lý giải đấu",
+    nav_account_my_teams: "Quản lý đội",
+    nav_account_my_orders: "Quản lý đơn hàng",
+    nav_account_logout: "Đăng xuất",
 };

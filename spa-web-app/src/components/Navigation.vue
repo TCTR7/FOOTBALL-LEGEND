@@ -9,37 +9,40 @@
                 </div>
                 <div class="nav-content">
                     <ul>
-                        <div class="nav-content-item">
+                        <div class="nav-content-item" :class="isNavActive ? 'active' : ''">
                             <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
                                 $t('home') }}</router-link>
                         </div>
-                        <div class="nav-content-item nav-dropdown">
+                        <div class="nav-content-item nav-dropdown" :class="isNavActive ? 'active' : ''">
                             <Dropdown :infos="dropdownConstant.TOURNAMENT_MENU" />
                         </div>
-                        <div class="nav-content-item nav-dropdown">
+                        <div class="nav-content-item nav-dropdown" :class="isNavActive ? 'active' : ''">
                             <Dropdown :infos="dropdownConstant.TEAM_MENU" />
                         </div>
-                        <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                        <div class="nav-content-item" :class="isNavActive ? 'active' : ''">
+                            <router-link class="link item-content" :to="{ name: routerConstant.PRICE_LIST_VIEW_NAME }">{{
                                 $t('nav_pricing') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                            <router-link class="link item-content" :to="{ name: routerConstant.BLOG_VIEW_NAME }">{{
                                 $t('nav_blog') }}</router-link>
                         </div>
                         <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                            <router-link class="link item-content" :to="{ name: routerConstant.SHOPPING_VIEW_NAME }">{{
                                 $t('nav_shopping') }}</router-link>
                         </div>
-                        <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                        <div class="nav-content-item" v-if="!isLogged" >
+                            <router-link class="link item-content" :to="{ name: routerConstant.LOGIN_VIEW_NAME }">{{
                                 $t('nav_login') }}</router-link>
                         </div>
-                        <div class="nav-content-item">
+                        <div class="nav-content-item" v-if="!isLogged" >
                             <button class="register-btn btn item-content">{{ $t('nav_register') }}</button>
                         </div>
+                        <div class="nav-content-item nav-dropdown" style="margin-right: 20px;" :class="isNavActive ? 'active' : ''" v-if="isLogged">
+                            <Dropdown :infos="dropdownConstant.PROFILE_MENU" />
+                        </div>
                         <div class="inform">
-                            <font-awesome-icon :icon="['fa', 'bell']" style="color: yellow;"/>
+                            <Notification />
                             <font-awesome-icon :icon="['fa', 'caret-down']" class="caret-down" />
                         </div>
                         <LanguagueDropdown class="nav-dropdown" />
@@ -51,22 +54,31 @@
 </template>
 <script>
 import RouterConstants from "@/constants/RouterConstants"
-import DropdownConstant from "@/constants/DropdownConstant"
+import { DropdownConstant } from "@/constants/DropdownConstant"
 import Dropdown from "@/components/Dropdown.vue"
 import LanguagueDropdown from "./LanguagueDropdown.vue"
+import { ref } from 'vue'
+import Notification from "./Notification.vue"
 export default {
     name: 'navigation-component',
     components: {
         Dropdown,
-        LanguagueDropdown
+        LanguagueDropdown,
+        Notification
     },
     setup() {
         const routerConstant = RouterConstants
         const dropdownConstant = DropdownConstant
+        // TODO - handle vuex
+        const isNotificationActive = ref(true)
+        // TODO - handle authorization
+        const isLogged = ref(false)
 
         return {
             routerConstant,
-            dropdownConstant
+            dropdownConstant,
+            isNotificationActive,
+            isLogged
         }
     }
 }
@@ -103,7 +115,7 @@ export default {
             .nav-content {
                 height: 100%;
                 margin-right: 0;
-                margin-left: 300px;
+                margin-left: 550px;
 
                 ul {
                     display: flex;
@@ -131,6 +143,8 @@ export default {
                                 opacity: .5;
                             }
                         }
+
+
                     }
 
                     .nav-content-item {
@@ -163,6 +177,10 @@ export default {
                                     #736dc2, #7c6cc2, #846ac2, #8d69c2, #9567c1) !important;
                             font-size: 14px;
                         }
+                    }
+
+                    .nav-content-item.active {
+                        background-color: #736dc2;
                     }
 
                     .nav-content-item:last-child {

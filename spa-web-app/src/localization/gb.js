@@ -13,5 +13,10 @@ export default {
     nav_find_team: "Find team",
     nav_create_lineup: "Create lineup",
     vn: "Vietnamese",
-    gb: "England"
+    gb: "England",
+    nav_account_information: "Account information",
+    nav_account_my_leagues: "My leagues",
+    nav_account_my_teams: "My teams",
+    nav_account_my_orders: "My orders",
+    nav_account_logout: "Log out",
 };

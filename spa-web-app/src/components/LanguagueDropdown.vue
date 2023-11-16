@@ -1,8 +1,8 @@
 <template>
-    <div class="dropdown" ref="dropdownRef" @click="showDropdownMenu">
+    <div class="dropdown" ref="dropdownRef">
         <div class="dropdown-title box-center">
             <country-flag-icon :country="currentLanguage" size="normal" style="margin: 0; padding: 0;"/>
-            <font-awesome-icon :icon="['fa', 'caret-down']" style="width: 20px;"/>
+            <font-awesome-icon :icon="['fa', 'caret-down']" style="width: 20px; margin-left: -8px !important;" @click="showDropdownMenu"/>
         </div>
         <ul class="dropdown-menu" v-if="isVisibleMenu">
             <div class="item box-center language-content" v-for="(item, index) in languages" :key="index" @click="changeLanguage(item)">
