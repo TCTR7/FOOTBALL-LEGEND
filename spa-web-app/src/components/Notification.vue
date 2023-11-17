@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="notify-content-item" style="color: black;" v-for="(item, index) in notifications" :key="index">
-                <p class="content-title underline-text">{{ $t(item.title) }}</p>
+                <p class="content-title">{{ $t(item.title) }}</p>
                 <pre style="white-space: pre-line;">{{ $t(item.content) }}</pre>
             </div>
         </div>
@@ -56,7 +56,8 @@ export default {
             return store.getters['notification/isUnreadNotifycations'];
         });
 
-        function confirmNotificationHaveRead() {
+        function confirmNotificationHaveRead(event) {
+            event.preventDefault()
             store.commit('notification/confirmThatNotificationHaveRead')
         }
 
@@ -103,7 +104,7 @@ export default {
 
         .inform-header {
             padding: 10px;
-            border-bottom: 2px solid $main-color;
+            border-bottom: 1px solid $main-color;
 
             .header-content {
                 font-size: 24px;
@@ -133,8 +134,9 @@ export default {
             padding: 10px;
 
             .content-title {
-                padding: 5px;
+                padding: 5px 5px 5px 1px;
                 font-weight: bold;
+                font-size: 18px;
             }
         }
     }

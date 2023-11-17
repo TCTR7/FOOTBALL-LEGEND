@@ -19,5 +19,11 @@ export default {
     nav_account_my_teams: "Quản lý đội",
     nav_account_my_orders: "Quản lý đơn hàng",
     nav_account_logout: "Đăng xuất",
-    notifications: "Thông báo"
+    notifications: "Thông báo",
+    make_tournament_system: "Nền tảng quản lý giải đấu, đội thi đấu",
+    terms_of_user: "Diều khoản sử dụng",
+    privacy_policy: "Chính sách bảo mật",
+    payment_policy: "Chính sách thanh toán",
+    information_security_policy: "Chính sách bảo mật thông tin cá nhân",
+    comments_on_football_legend: "Nhận xét về Football-Legend",
 };

@@ -19,5 +19,11 @@ export default {
     nav_account_my_teams: "My teams",
     nav_account_my_orders: "My orders",
     nav_account_logout: "Log out",
-    notifications: "Notifications"
+    notifications: "Notifications",
+    make_tournament_system: "Make Tournamation System",
+    terms_of_user: "Terms of user",
+    privacy_policy: "Privacy policy",
+    payment_policy: "Payment policy",
+    information_security_policy: "Information security policy",
+    comments_on_football_legend: "Comments on Football-Legend",
 };

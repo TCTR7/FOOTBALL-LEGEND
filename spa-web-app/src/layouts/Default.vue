@@ -1,7 +1,9 @@
 <template>
     <div id="default-layout" class="default-layout">
         <Navigation />
-        <slot style="flex-grow: 1;"/>
+        <div class="main-content" id="App-Content" style="flex-grow: 1;">
+            <slot style="flex-grow: 1;"/>
+        </div>
         <Footer />
     </div>
 </template>
@@ -16,7 +18,7 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .default-layout {
     display: flex;
     flex-direction: column;
@@ -27,5 +29,10 @@ export default {
     height: 100%;
     line-height: 1.428571429;
     margin: 0;
+
+    .main-content {
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
 }
 </style>
