@@ -21,5 +21,6 @@ module.exports = Object.freeze({
     CONTACT_VIEW_NAME: 'contact-us',
     PRIVACY_POLICY_VIEW_NAME: 'privacy-policy',
     TERMS_OF_USER_VIEW_NAME: 'terms-of-user',
+    NOTIFICATION_VIEW_NAME: 'notifications',
     POLICY_PROFILE_VIEW_NAME: 'policy-profile'
   })

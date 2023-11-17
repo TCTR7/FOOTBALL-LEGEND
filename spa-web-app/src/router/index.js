@@ -4,6 +4,7 @@ import BlogView from '@/views/BlogView.vue'
 import PricingView from '@/views/PricingView.vue'
 import ShopsView from '@/views/ShopsView.vue'
 import LoginView from '@/views/LoginView.vue'
+import NotificationView from '@/views/NotificationView.vue'
 import SystemConstants from '@/constants/SystemConstants';
 import RouterConstants from '@/constants/RouterConstants';
 
@@ -44,6 +45,16 @@ const router = createRouter({
             meta: {
                 layout: SystemConstants.DEFAULT_LAYOUT,
                 title: 'Blog-View'
+            },
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT)
+        },
+        {
+            path: '/' + RouterConstants.NOTIFICATION_VIEW_NAME,
+            name: RouterConstants.NOTIFICATION_VIEW_NAME,
+            component: NotificationView,
+            meta: {
+                layout: SystemConstants.DEFAULT_LAYOUT,
+                title: 'Notificaiton-View'
             },
             beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT)
         },

@@ -33,7 +33,6 @@ export default {
   font-family: "Quicksand", sans-serif;
   width: 100%;
   height: 100%;
-  color: #fff;
 }
 
 #app {
@@ -63,4 +62,5 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 </style>

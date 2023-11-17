@@ -19,4 +19,5 @@ export default {
     nav_account_my_teams: "Quản lý đội",
     nav_account_my_orders: "Quản lý đơn hàng",
     nav_account_logout: "Đăng xuất",
+    notifications: "Thông báo"
 };

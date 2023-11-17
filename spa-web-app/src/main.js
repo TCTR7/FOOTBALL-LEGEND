@@ -10,6 +10,7 @@ import { FontAwesomeIcon, library } from './fontawesome/index'
 import CountryFlag from 'vue-country-flag-next'
 
 import i18n from './localization'
+import store from './store'
 
 
 const app = createApp(App);
@@ -19,4 +20,5 @@ app.component(SystemConstants.DEFAULT_LAYOUT, DefaultLayout)
     .component('country-flag-icon', CountryFlag)
     .use(router)
     .use(i18n)
+    .use(store)
     .mount('#app')

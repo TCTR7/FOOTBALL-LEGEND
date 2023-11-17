@@ -67,9 +67,10 @@ export default {
     .dropdown-title {
         cursor: pointer;
         padding: 2px;
+        color: white;
 
         &:hover {
-            color: rgba(158, 153, 153, 0.2);
+            color: rgba(230, 228, 228, 0.5);
             opacity: .5;
         }
     }

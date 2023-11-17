@@ -19,4 +19,5 @@ export default {
     nav_account_my_teams: "My teams",
     nav_account_my_orders: "My orders",
     nav_account_logout: "Log out",
+    notifications: "Notifications"
 };

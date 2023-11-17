@@ -9,40 +9,41 @@
                 </div>
                 <div class="nav-content">
                     <ul>
-                        <div class="nav-content-item" :class="isNavActive ? 'active' : ''">
-                            <router-link class="link item-content" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
+                        <div class="nav-content-item box-center" :class="isNavActive ? 'active' : ''">
+                            <router-link class="link item-content box-center" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
                                 $t('home') }}</router-link>
                         </div>
-                        <div class="nav-content-item nav-dropdown" :class="isNavActive ? 'active' : ''">
+                        <div class="nav-content-item box-center nav-dropdown" :class="isNavActive ? 'active' : ''">
                             <Dropdown :infos="dropdownConstant.TOURNAMENT_MENU" />
                         </div>
-                        <div class="nav-content-item nav-dropdown" :class="isNavActive ? 'active' : ''">
+                        <div class="nav-content-item box-center nav-dropdown" :class="isNavActive ? 'active' : ''">
                             <Dropdown :infos="dropdownConstant.TEAM_MENU" />
                         </div>
-                        <div class="nav-content-item" :class="isNavActive ? 'active' : ''">
-                            <router-link class="link item-content" :to="{ name: routerConstant.PRICE_LIST_VIEW_NAME }">{{
+                        <div class="nav-content-item box-center" :class="isNavActive ? 'active' : ''">
+                            <router-link class="link item-content box-center" :to="{ name: routerConstant.PRICE_LIST_VIEW_NAME }">{{
                                 $t('nav_pricing') }}</router-link>
                         </div>
-                        <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.BLOG_VIEW_NAME }">{{
+                        <div class="nav-content-item box-center">
+                            <router-link class="link item-content box-center" :to="{ name: routerConstant.BLOG_VIEW_NAME }">{{
                                 $t('nav_blog') }}</router-link>
                         </div>
-                        <div class="nav-content-item">
-                            <router-link class="link item-content" :to="{ name: routerConstant.SHOPPING_VIEW_NAME }">{{
+                        <div class="nav-content-item box-center">
+                            <router-link class="link item-content box-center" :to="{ name: routerConstant.SHOPPING_VIEW_NAME }">{{
                                 $t('nav_shopping') }}</router-link>
                         </div>
-                        <div class="nav-content-item" v-if="!isLogged" >
-                            <router-link class="link item-content" :to="{ name: routerConstant.LOGIN_VIEW_NAME }">{{
+                        <div class="nav-content-item box-center" v-if="!isLogged">
+                            <router-link class="link item-content box-center" :to="{ name: routerConstant.LOGIN_VIEW_NAME }">{{
                                 $t('nav_login') }}</router-link>
                         </div>
-                        <div class="nav-content-item" v-if="!isLogged" >
-                            <button class="register-btn btn item-content">{{ $t('nav_register') }}</button>
+                        <div class="nav-content-item box-center" v-if="!isLogged">
+                            <button class="register-btn btn item-content box-center">{{ $t('nav_register') }}</button>
                         </div>
-                        <div class="nav-content-item nav-dropdown" style="margin-right: 20px;" :class="isNavActive ? 'active' : ''" v-if="isLogged">
+                        <div class="nav-content-item box-center nav-dropdown" style="margin-right: 20px;"
+                            :class="isNavActive ? 'active' : ''" v-if="isLogged">
                             <Dropdown :infos="dropdownConstant.PROFILE_MENU" />
                         </div>
-                        <div class="inform">
-                            <Notification />
+                        <div class="inform nav-dropdown" @click="onShowNotifyClickHandle" ref="notificationRef">
+                            <Notification :showContent="isShowNotifyContent" />
                             <font-awesome-icon :icon="['fa', 'caret-down']" class="caret-down" />
                         </div>
                         <LanguagueDropdown class="nav-dropdown" />
@@ -69,17 +70,42 @@ export default {
     setup() {
         const routerConstant = RouterConstants
         const dropdownConstant = DropdownConstant
-        // TODO - handle vuex
-        const isNotificationActive = ref(true)
         // TODO - handle authorization
         const isLogged = ref(false)
+        const isShowNotifyContent = ref(false)
+        const notificationRef = ref(null)
+
+        function onShowNotifyClickHandle(event) {
+            event.preventDefault()
+            console.log(isShowNotifyContent.value)
+            isShowNotifyContent.value = !isShowNotifyContent.value
+            console.log(isShowNotifyContent.value)
+        }
+
+        function closeDropdowns(event) {
+            event.preventDefault()
+            if (notificationRef.value && !notificationRef.value.contains(event.target)) {
+                isShowNotifyContent.value = false
+            }
+        }
 
         return {
             routerConstant,
             dropdownConstant,
-            isNotificationActive,
-            isLogged
+            isLogged,
+            isShowNotifyContent,
+            notificationRef,
+            closeDropdowns,
+            onShowNotifyClickHandle
         }
+    },
+
+    mounted() {
+        document.addEventListener('click', this.closeDropdowns);
+    },
+
+    beforeUnmount() {
+        document.removeEventListener('click', this.closeDropdowns);
     }
 }
 </script>
@@ -125,6 +151,7 @@ export default {
 
                     .nav-dropdown {
                         position: relative;
+                        color: white;
                     }
 
                     .inform {
@@ -143,21 +170,15 @@ export default {
                                 opacity: .5;
                             }
                         }
-
-
                     }
 
                     .nav-content-item {
                         margin-right: 5px;
                         padding: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
 
                         .item-content {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
+                            color: white;
+                            white-space: nowrap;
 
                             &:hover {
                                 color: rgb(165, 162, 162);
@@ -166,11 +187,12 @@ export default {
                         }
 
                         .register-btn {
-                            margin: 15px;
+                            margin: 10px;
                             touch-action: manipulation;
                             user-select: none;
                             vertical-align: middle;
                             white-space: nowrap;
+                            padding: 0 10px;
                             background-color: #676ec1;
                             background-image: linear-gradient(to right top, #9467c1,
                                     #8c69c2, #846ac2, #7b6cc2, #736dc2, #736dc2, #736dc2,
