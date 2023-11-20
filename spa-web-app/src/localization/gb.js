@@ -27,4 +27,6 @@ export default {
     contact: "Contact",
     information_security_policy: "Information security policy",
     comments_on_football_legend: "Comments on Football-Legend",
+    company_name: "Football-Legend.,JSC",
+    license: "© 2023 - Copyright by football-legend.vn\nCopyright"
 };

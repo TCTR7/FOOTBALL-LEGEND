@@ -12,18 +12,31 @@
                 <router-link class="link sub-item" to="/">{{ $t('nav_pricing') }}</router-link>
                 <div class="icons">
                     <router-link class="link icon-item" to="/">
-                        <font-awesome-icon class="icon" style="color: yellow;" :icon="['fa', 'envelope']" />
+                        <font-awesome-icon class="left-icon" style="color: yellow;" :icon="['fa', 'envelope']" />
                     </router-link>
                     <router-link class="link icon-item" to="/">
-                        <font-awesome-icon class="icon" style="color: rgb(47, 9, 150);" :icon="['fab', 'facebook']" />
+                        <font-awesome-icon class="left-icon" style="color: rgb(47, 9, 150);" :icon="['fab', 'facebook']" />
                     </router-link>
                     <router-link class="link icon-item" to="/">
-                        <font-awesome-icon class="icon" style="color: rgb(11, 171, 40);" :icon="['fab', 'instagram']" />
+                        <font-awesome-icon class="left-icon" style="color: rgb(11, 171, 40);" :icon="['fab', 'instagram']" />
                     </router-link>
                 </div>
             </div>
             <div class="item center">
-                This is footer
+                <p class="company-name">{{ $t('company_name') }}</p>
+                <div class="address box-center">
+                    <font-awesome-icon class="address-icon center-icon" style="color: black;" :icon="['fa', 'location-dot']" />
+                    <span class="box-center display-center">Address Address Address Address Address Address Address Address Address Address</span>
+                </div>
+                <div class="box-center">
+                    <font-awesome-icon class="phone-icon center-icon"  style="color: black;" :icon="['fas', 'phone']" />
+                    <span class="display-center box-center" style="font-size: 14px;">{{ '0905.729.459' }}</span>
+                </div>
+                <div class="box-center">
+                    <font-awesome-icon class="center-icon" :icon="['fas', 'envelope']" />
+                    <span class="display-center box-center">{{ 'contact@football-legend.vn' }}</span>
+                </div>
+                <pre class="license box-center">{{ $t('license') }}</pre>
             </div>
             <div class="item right">
                 This is footer
@@ -72,19 +85,54 @@ export default {
 
                 .icon-item {
                     max-width: 100px;
-                    .icon {
-                        width: 25px;
-                        height: 25px;
-                        margin: 10px 20px;
-                    }
                 }
 
             }
         }
 
         .center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: black;
+
+            .company-name {
+                font-weight: 600;
+                font-size: 20px;
+                color: rgb(11, 171, 40)
+            }
+
+            .display-center {
+                display: flex;
+                word-wrap: break-word;
+                max-width: fit-content;
+                justify-content: flex-start !important;
+            }
+
+            .address {
+                max-width: 300px;
+            }
+        }
+
+        .right {
             text-align: center;
         }
     }
+}
+
+.left-icon {
+    width: 25px;
+    height: 25px;
+    margin: 10px 20px;
+    color: black
+}
+
+.center-icon {
+    width: 15px;
+    height: 15px;
+    margin: 10px 20px;
+    color: black
 }
 </style>

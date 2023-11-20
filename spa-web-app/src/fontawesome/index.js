@@ -5,7 +5,9 @@ import {
     faBell,
     faArrowUpRightFromSquare,
     faEnvelope,
-    faEnvelopeOpen
+    faEnvelopeOpen,
+    faLocationDot,
+    faPhone
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -20,7 +22,9 @@ library.add(
     faEnvelope,
     faEnvelopeOpen,
     faFacebook,
-    faInstagram
+    faInstagram,
+    faLocationDot,
+    faPhone
 )
 
 export { FontAwesomeIcon, library };

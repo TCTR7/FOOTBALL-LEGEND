@@ -27,4 +27,6 @@ export default {
     contact: "Liên hệ",
     information_security_policy: "Chính sách bảo mật thông tin cá nhân",
     comments_on_football_legend: "Nhận xét về Football-Legend",
+    company_name: "Công ty cổ phần Football-Legend",
+    license: "© 2023 - Bản quyền thuộc về football-legend.vn\nĐã đăng ký bản quyền"
 };
