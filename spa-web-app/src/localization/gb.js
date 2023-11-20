@@ -24,6 +24,7 @@ export default {
     terms_of_user: "Terms of user",
     privacy_policy: "Privacy policy",
     payment_policy: "Payment policy",
+    contact: "Contact",
     information_security_policy: "Information security policy",
     comments_on_football_legend: "Comments on Football-Legend",
 };
