@@ -28,5 +28,10 @@ export default {
     information_security_policy: "Information security policy",
     comments_on_football_legend: "Comments on Football-Legend",
     company_name: "Football-Legend.,JSC",
-    license: "© 2023 - Copyright by football-legend.vn\nCopyright"
+    license: "© 2023 - Copyright by football-legend.vn\nCopyright",
+    community_page: "Football-Legend community",
+    facebook_group: `Facebook group`,
+    members: "members",
+    visit_group: "Visit group",
+    facebook_introduction: "Please join our Facebook group for the best support."
 };

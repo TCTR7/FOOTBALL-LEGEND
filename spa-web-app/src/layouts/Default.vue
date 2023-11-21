@@ -29,6 +29,7 @@ export default {
     height: 100%;
     line-height: 1.428571429;
     margin: 0;
+    position: relative;
 
     .main-content {
         background-color: #f8f8f8;

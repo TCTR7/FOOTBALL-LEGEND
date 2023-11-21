@@ -32,7 +32,6 @@ export default {
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
   width: 100%;
-  height: 100%;
 }
 
 #app {
