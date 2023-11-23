@@ -95,8 +95,7 @@ export default {
 
 .footer-wraper {
     height: 300px;
-    position: fixed;
-    bottom: 10px;
+    margin-top: 60px;
 
     .wrapper {
         background-color: #fff;

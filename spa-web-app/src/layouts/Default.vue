@@ -1,7 +1,7 @@
 <template>
     <div id="default-layout" class="default-layout">
         <Navigation />
-        <div class="main-content" id="App-Content" style="flex-grow: 1;">
+        <div id="App-Content" style="flex-grow: 1;">
             <slot style="flex-grow: 1;"/>
         </div>
         <Footer />
@@ -30,10 +30,5 @@ export default {
     line-height: 1.428571429;
     margin: 0;
     position: relative;
-
-    .main-content {
-        background-color: #f8f8f8;
-        padding: 20px;
-    }
 }
 </style>

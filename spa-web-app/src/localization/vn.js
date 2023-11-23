@@ -33,5 +33,10 @@ export default {
     facebook_group: `Nhóm Facebook`,
     members: "thành viên",
     visit_group: "Truy cập nhóm",
-    facebook_introduction: "Hãy tham gia cộng đồng Football-Legend để được hỗ trợ tốt nhất!"
+    facebook_introduction: "Hãy tham gia cộng đồng Football-Legend để được hỗ trợ tốt nhất!",
+    setup_league: "Tùy chỉnh giải đấu",
+    operate_league: "Điều hành giải đấu",
+    create_league_description: "Loại trực tiếp\nĐấu vòng tròn\nChia bảng đấu\nVòng tròn - loại trực tiếp\nNhánh thắng - nhánh thua",
+    setup_league_description: "Nhập điều lệ, hình và địa điểm\nNhập thông tin của đội/vận động viên\nMời người tham gia\nLập lịch đấu\nTùy chỉnh giai đoạn",
+    operate_league_description: "Kích hoạt\nCập nhật kết quả\nXem thống kê\nChia sẻ với bạn bè"
 };

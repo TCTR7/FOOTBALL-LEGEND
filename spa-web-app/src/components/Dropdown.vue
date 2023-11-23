@@ -92,7 +92,7 @@ export default {
         min-width: 200px;
         padding: 5px;
         text-align: left;
-        top: 32px;
+        top: 34px;
         z-index: 1000;
 
         .item {

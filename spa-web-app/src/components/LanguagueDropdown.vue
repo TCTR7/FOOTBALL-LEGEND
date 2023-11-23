@@ -97,7 +97,7 @@ export default {
         min-width: 200px;
         padding: 5px;
         text-align: left;
-        top: 100%;
+        top: 104%;
         z-index: 1000;
 
         .item {

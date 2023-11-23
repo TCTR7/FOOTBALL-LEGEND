@@ -33,5 +33,10 @@ export default {
     facebook_group: `Facebook group`,
     members: "members",
     visit_group: "Visit group",
-    facebook_introduction: "Please join our Facebook group for the best support."
+    facebook_introduction: "Please join our Facebook group for the best support.",
+    setup_league: "Setup league",
+    operate_league: "Operate league",
+    create_league_description: "Knockout\nRound-robin\nMulti-stage\nRound-robin-knockout\nDouble elimination",
+    setup_league_description: "Provide regulations, images and location\nProvide team/member data\nInvite managers\nSetup fixture\nConfig phases",
+    operate_league_description: "Active\nUpdate results\nView statistics\nShare with friends"
 };

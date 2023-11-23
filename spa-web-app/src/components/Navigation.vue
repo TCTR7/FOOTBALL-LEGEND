@@ -115,6 +115,8 @@ export default {
 .app-bar {
     display: block;
     height: 60px;
+    position: fixed;
+    z-index: 1111;
 
     .app-nav {
         border-radius: 0;
@@ -193,6 +195,7 @@ export default {
                             vertical-align: middle;
                             white-space: nowrap;
                             padding: 0 10px;
+                            min-height: 35px;
                             background-color: #676ec1;
                             background-image: linear-gradient(to right top, #9467c1,
                                     #8c69c2, #846ac2, #7b6cc2, #736dc2, #736dc2, #736dc2,
