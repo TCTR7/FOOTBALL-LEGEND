@@ -52,6 +52,11 @@
                         </div>
                         <pre class="description">{{ $t('setup_league_description') }}</pre>
                     </div>
+                    <div class="introduction">
+                        <p class="introduction-title">{{ $t('league_operation') }}</p>
+                        <br>
+                        <p class="introduction-detail">{{ $t('league_operation_detail') }}</p>
+                    </div>
                 </div>
                 <div class="content content-3" :class="{ 'visible': isVisible }">
                     <div class="sub-content">
@@ -64,12 +69,38 @@
                         <pre class="description">{{ $t('operate_league_description') }}</pre>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="section" id="home-3">
             <div class="container home3-content">
-
+                <div class="content content-1">
+                    <div class="content-title">
+                        <p class="header">{{ $t('multiple_league_support_title') }}</p>
+                        <pre class="detail">{{ $t('multiple_league_support_description') }}</pre>
+                    </div>
+                    <div class="content-items">
+                        <div class="item item-1">
+                            <div class="sub-item-top"></div>
+                            <div class="sub-item-bottom"></div>
+                        </div>
+                        <div class="item item-2">
+                            <div class="sub-item-top"></div>
+                            <div class="sub-item-bottom"></div>
+                        </div>
+                        <div class="item item-3">
+                            <div class="sub-item-top"></div>
+                            <div class="sub-item-bottom"></div>
+                        </div>
+                        <div class="item item-4">
+                            <div class="sub-item-top"></div>
+                            <div class="sub-item-bottom"></div>
+                        </div>
+                        <div class="item item-5">
+                            <div class="sub-item-top"></div>
+                            <div class="sub-item-bottom"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="section" id="home-4">
@@ -263,6 +294,26 @@ export default {
                     background: rgba(94, 233, 131, 0.3);
                 }
 
+                .introduction {
+                    order: 2;
+                    padding: 10px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 200px;
+
+                    .introduction-title {
+                        font-size: 42px;
+                        font-weight: 600;
+                        color: $main-color;
+                    }
+
+                    .introduction-detail {
+                        font-size: 20px;
+                        padding: 10px;
+                        border-top: 1px solid $main-color;
+                    }
+                }
+
                 .sub-content {
                     display: flex;
                     flex-direction: column;
@@ -298,22 +349,66 @@ export default {
                     }
                 }
             }
-
-            .content-1,
-            .content-2,
-            .content-3 {
-                opacity: 0;
-                transition: opacity 1s ease;
-            }
         }
 
         .visible {
-            opacity: 1 !important;
             animation: slideAndScale 1.5s ease forwards;
         }
 
         .home3-content {
-            padding: 0px;
+            padding: 20px 150px;
+            width: 100%;
+            height: 100%;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+
+                .content-title {
+                    text-align: center;
+                    max-height: 300px;
+                    flex: 2;
+                    padding: 70px;
+
+                    .header {
+                        color: $main-color;
+                        font-size: 42px;
+                        font-weight: 600;
+                    }
+
+                    .detail {
+                        font-size: 20px;
+                        padding: 10px;
+                        margin-top: 20px;
+                        border-top: 1px solid $main-color;
+                    }
+                }
+
+                .content-items {
+                    flex: 3;
+                    display: flex;
+
+                    .item {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin: 10px;
+
+                        .sub-item-top {
+                            display: block;
+                            flex: 1;
+                        }
+
+                        .sub-item-bottom {
+                            display: flex;
+                            flex-direction: column;
+                            flex: 1;
+                        }
+                    }
+                }
+            }
         }
 
         .home4-content {

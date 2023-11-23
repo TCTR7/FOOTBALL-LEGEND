@@ -38,5 +38,9 @@ export default {
     operate_league: "Điều hành giải đấu",
     create_league_description: "Loại trực tiếp\nĐấu vòng tròn\nChia bảng đấu\nVòng tròn - loại trực tiếp\nNhánh thắng - nhánh thua",
     setup_league_description: "Nhập điều lệ, hình và địa điểm\nNhập thông tin của đội/vận động viên\nMời người tham gia\nLập lịch đấu\nTùy chỉnh giai đoạn",
-    operate_league_description: "Kích hoạt\nCập nhật kết quả\nXem thống kê\nChia sẻ với bạn bè"
+    operate_league_description: "Kích hoạt\nCập nhật kết quả\nXem thống kê\nChia sẻ với bạn bè",
+    league_operation: "Điều hành giải",
+    league_operation_detail: "Có 3 giai đoạn để điều hành giải",
+    multiple_league_support_title: "Multiple league formats are supported",
+    multiple_league_support_description: "MyLeague supports users creating the leagues\nwhich have similar formats to the most popular leagues in the world such as Premier League, Champions League, World Cup."
 };

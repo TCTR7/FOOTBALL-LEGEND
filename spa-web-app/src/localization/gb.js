@@ -38,5 +38,9 @@ export default {
     operate_league: "Operate league",
     create_league_description: "Knockout\nRound-robin\nMulti-stage\nRound-robin-knockout\nDouble elimination",
     setup_league_description: "Provide regulations, images and location\nProvide team/member data\nInvite managers\nSetup fixture\nConfig phases",
-    operate_league_description: "Active\nUpdate results\nView statistics\nShare with friends"
+    operate_league_description: "Active\nUpdate results\nView statistics\nShare with friends",
+    league_operation: "League operation",
+    league_operation_detail: "There are 3 phases of a league operation",
+    multiple_league_support_title: "Multiple league formats are supported",
+    multiple_league_support_description: "MyLeague supports users creating the leagues\nwhich have similar formats to the most popular leagues in the world such as Premier League, Champions League, World Cup."
 };
