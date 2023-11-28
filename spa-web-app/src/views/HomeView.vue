@@ -80,24 +80,64 @@
                     </div>
                     <div class="content-items">
                         <div class="item item-1">
-                            <div class="sub-item-top"></div>
-                            <div class="sub-item-bottom"></div>
+                            <div class="overlay"></div>
+                            <div class="sub-item-top">
+                                <span class="desc"></span>
+                            </div>
+                            <div class="sub-item-bottom">
+                                <div class="sport-symbol-and-detail">
+                                    <font-awesome-icon class="sport-symbol" :icon="['fa', 'network-wired']" rotation=90 />
+                                    <p class="sport-detail">{{ $t('knock_out') }}</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="item item-2">
-                            <div class="sub-item-top"></div>
-                            <div class="sub-item-bottom"></div>
+                            <div class="overlay"></div>
+                            <div class="sub-item-top">
+                                <span class="desc"></span>
+                            </div>
+                            <div class="sub-item-bottom">
+                                <div class="sport-symbol-and-detail">
+                                    <font-awesome-icon class="sport-symbol" :icon="['fa', 'vector-square']" rotation=90 />
+                                    <p class="sport-detail">{{ $t('round_robin') }}</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="item item-3">
-                            <div class="sub-item-top"></div>
-                            <div class="sub-item-bottom"></div>
+                            <div class="overlay"></div>
+                            <div class="sub-item-top">
+                                <span class="desc"></span>
+                            </div>
+                            <div class="sub-item-bottom">
+                                <div class="sport-symbol-and-detail">
+                                    <font-awesome-icon class="sport-symbol" :icon="['fa', 'fa-cubes']" rotation=90 />
+                                    <p class="sport-detail">{{ $t('winner_bracket_loser_bracket') }}</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="item item-4">
-                            <div class="sub-item-top"></div>
-                            <div class="sub-item-bottom"></div>
+                            <div class="overlay"></div>
+                            <div class="sub-item-top">
+                                <span class="desc"></span>
+                            </div>
+                            <div class="sub-item-bottom">
+                                <div class="sport-symbol-and-detail">
+                                    <font-awesome-icon class="sport-symbol" :icon="['fa', 'radiation']" rotation=90 />
+                                    <p class="sport-detail">{{ $t('robin_phase_knockout') }}</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="item item-5">
-                            <div class="sub-item-top"></div>
-                            <div class="sub-item-bottom"></div>
+                            <div class="overlay"></div>
+                            <div class="sub-item-top">
+                                <span class="desc"></span>
+                            </div>
+                            <div class="sub-item-bottom">
+                                <div class="sport-symbol-and-detail">
+                                    <font-awesome-icon class="sport-symbol" :icon="['fa', 'table-cells']" rotation=90 />
+                                    <p class="sport-detail">{{ $t('group_stage') }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,6 +228,12 @@ export default {
 
     to {
         transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(50px);
     }
 }
 
@@ -395,17 +441,79 @@ export default {
                         flex-direction: column;
                         justify-content: center;
                         margin: 10px;
+                        position: relative;
+
+                        .overlay {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        }
 
                         .sub-item-top {
                             display: block;
                             flex: 1;
+                            background-size: cover;
                         }
 
                         .sub-item-bottom {
                             display: flex;
-                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
                             flex: 1;
+
+                            .sport-symbol-and-detail {
+                                font-size: 25px;
+                                font-weight: 600;
+
+                                .sport-symbol {
+                                    width: 80px;
+                                    height: 80px;
+                                    margin: 10px;
+                                }
+
+                                .sport-detail {
+                                    margin-top: 10px;
+                                }
+                            }
                         }
+                    }
+
+                    .item:hover {
+                        animation: slideDown .5s ease forwards;
+                    }
+
+                    .item:hover .overlay {
+                        opacity: 1;
+                        background: rgba(94, 233, 131, 0.5);
+                    }
+
+                    .item:hover .sub-item-bottom {
+                        color: $main-color;
+                    }
+
+                    .item-1 .sub-item-top {
+                        background-image: url("../assets/images/sports/badminton.jpg");
+                    }
+
+                    .item-2 .sub-item-top {
+                        background-image: url("../assets/images/sports/basketball.jpg");
+                    }
+
+                    .item-3 .sub-item-top {
+                        background-image: url("../assets/images/sports/bia.jpg");
+                    }
+
+                    .item-4 .sub-item-top {
+                        background-image: url("../assets/images/sports/marathon.jpg");
+                    }
+
+                    .item-5 .sub-item-top {
+                        background-image: url("../assets/images/sports/swimmer.jpg");
                     }
                 }
             }

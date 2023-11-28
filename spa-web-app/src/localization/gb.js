@@ -42,5 +42,10 @@ export default {
     league_operation: "League operation",
     league_operation_detail: "There are 3 phases of a league operation",
     multiple_league_support_title: "Multiple league formats are supported",
-    multiple_league_support_description: "MyLeague supports users creating the leagues\nwhich have similar formats to the most popular leagues in the world such as Premier League, Champions League, World Cup."
+    multiple_league_support_description: "MyLeague supports users creating the leagues\nwhich have similar formats to the most popular leagues in the world such as Premier League, Champions League, World Cup.",
+    knock_out: "Knock out",
+    round_robin: "Round robin",
+    winner_bracket_loser_bracket: "Winnerss Bracket - Losers Bracket",
+    robin_phase_knockout: "Robin phase - knockout",
+    group_stage: "Group stage",
 };
