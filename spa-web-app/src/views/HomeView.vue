@@ -82,7 +82,7 @@
                         <div class="item item-1">
                             <div class="overlay"></div>
                             <div class="sub-item-top">
-                                <span class="desc"></span>
+                                <span class="desc">{{ $t('knock_out_desc') }}</span>
                             </div>
                             <div class="sub-item-bottom">
                                 <div class="sport-symbol-and-detail">
@@ -94,7 +94,7 @@
                         <div class="item item-2">
                             <div class="overlay"></div>
                             <div class="sub-item-top">
-                                <span class="desc"></span>
+                                <span class="desc">{{ $t('round_robin_desc') }}</span>
                             </div>
                             <div class="sub-item-bottom">
                                 <div class="sport-symbol-and-detail">
@@ -106,7 +106,7 @@
                         <div class="item item-3">
                             <div class="overlay"></div>
                             <div class="sub-item-top">
-                                <span class="desc"></span>
+                                <span class="desc">{{ $t('winner_bracket_loser_bracket_desc') }}</span>
                             </div>
                             <div class="sub-item-bottom">
                                 <div class="sport-symbol-and-detail">
@@ -118,7 +118,7 @@
                         <div class="item item-4">
                             <div class="overlay"></div>
                             <div class="sub-item-top">
-                                <span class="desc"></span>
+                                <span class="desc">{{ $t('robin_phase_knockout_desc') }}</span>
                             </div>
                             <div class="sub-item-bottom">
                                 <div class="sport-symbol-and-detail">
@@ -130,7 +130,7 @@
                         <div class="item item-5">
                             <div class="overlay"></div>
                             <div class="sub-item-top">
-                                <span class="desc"></span>
+                                <span class="desc">{{ $t('group_stage_desc') }}</span>
                             </div>
                             <div class="sub-item-bottom">
                                 <div class="sport-symbol-and-detail">
@@ -450,15 +450,22 @@ export default {
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            background-color: rgba(0, 0, 0, 0.5);
                             opacity: 0;
                             transition: opacity 0.3s ease;
                         }
 
                         .sub-item-top {
-                            display: block;
                             flex: 1;
                             background-size: cover;
+
+                            .desc {
+                                text-align: center;
+                                color: white;
+                                padding: 30px 10px;
+                                margin-top: 30px;
+                                display: none;
+                                font-weight: 700;
+                            }
                         }
 
                         .sub-item-bottom {
@@ -490,7 +497,43 @@ export default {
 
                     .item:hover .overlay {
                         opacity: 1;
-                        background: rgba(94, 233, 131, 0.5);
+                        background: rgba(84, 243, 127, 0.2);
+                        z-index: 1;
+                    }
+
+                    .item:hover .sub-item-top .desc {
+                        display: block;
+                        color: rgb(238, 243, 240);
+                        opacity: 1 !important;
+                        z-index: 2;
+                    }
+
+                    .item-1:hover .sub-item-top .desc {
+                        display: block;
+                        color: rgb(11, 11, 11);
+                        opacity: 1 !important;
+                        z-index: 2;
+                    }
+
+                    .item-3:hover .sub-item-top .desc {
+                        display: block;
+                        color: rgb(11, 243, 235);
+                        opacity: 1 !important;
+                        z-index: 2;
+                    }
+
+                    .item-4:hover .sub-item-top .desc {
+                        display: block;
+                        color: $main-color;
+                        opacity: 1 !important;
+                        z-index: 2;
+                    }
+
+                    .item-5:hover .sub-item-top .desc {
+                        display: block;
+                        color: rgb(11, 11, 11);
+                        opacity: 1 !important;
+                        z-index: 2;
                     }
 
                     .item:hover .sub-item-bottom {

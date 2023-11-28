@@ -48,4 +48,9 @@ export default {
     winner_bracket_loser_bracket: "Winnerss Bracket - Losers Bracket",
     robin_phase_knockout: "Robin phase - knockout",
     group_stage: "Group stage",
+    knock_out_desc: "Knockout is the league format in which the lost team in each match is immediately eliminated from the league.",
+    round_robin_desc: "A tournament in which each team plays in turn against every other. Ranking rules are able to be adjusted.",
+    winner_bracket_loser_bracket_desc: "Double Elimination is a type of elimination in which losers still have an opportunity to compete in losers bracket",
+    robin_phase_knockout_desc: "A tournament combines 2 stages stage 1 is a round-robin, stage 2 is a knockout or double elimination.",
+    group_stage_desc: "A tournament combines 2 stages 1 is a group stage and phase 2 is a knockout or double elimination.",
 };
