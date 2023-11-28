@@ -1,5 +1,7 @@
 <template>
     <div class="notification-bell" :class="isNotificationActive ? 'active' : ''">
+        <font-awesome-icon class="bell-icon" :icon="['fa', 'bell']" v-if="!isUnreadNotify" />
+        <font-awesome-icon class="bell-icon" :icon="['fa', 'bell']" shake v-if="isUnreadNotify" />
         <div class="notification-badge" v-if="isUnreadNotify">
             <span class="notify-number">{{ notificationLength }}</span>
         </div>
@@ -88,6 +90,34 @@ export default {
     border-radius: 50%;
     cursor: pointer;
 
+    .bell-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        margin-top: 5px;
+        color: yellow;
+    }
+
+    .notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        color: #fff;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: bold;
+        display: none;
+        width: 13px;
+        height: 15px;
+
+        .notify-number {
+            margin-bottom: 1px;
+        }
+    }
+
     .notify-content {
         position: absolute;
         display: block;
@@ -142,37 +172,15 @@ export default {
     }
 }
 
-.notification-bell::before {
-    content: '\1F514';
-    font-size: 18px;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.notification-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: bold;
-    display: none;
-    width: 10px;
-    height: 15px;
-
-    .notify-number {
-        margin-bottom: 2px;
-    }
+.notification-bell.active {
+    animation: Shake .5s;
 }
 
 .notification-bell.active .notification-badge {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 4px;
+    margin-right: 2px;
 }
 </style>

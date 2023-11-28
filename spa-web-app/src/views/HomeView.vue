@@ -345,12 +345,13 @@ export default {
                     padding: 10px 20px;
                     display: flex;
                     flex-direction: column;
-                    margin-bottom: 200px;
+                    margin-bottom: 150px;
 
                     .introduction-title {
                         font-size: 42px;
                         font-weight: 600;
                         color: $main-color;
+                        padding-top: 30px;
                     }
 
                     .introduction-detail {
@@ -402,7 +403,7 @@ export default {
         }
 
         .home3-content {
-            padding: 20px 150px;
+            padding: 10px 150px 40px;
             width: 100%;
             height: 100%;
 
@@ -416,7 +417,7 @@ export default {
                     text-align: center;
                     max-height: 300px;
                     flex: 2;
-                    padding: 70px;
+                    padding: 40px;
 
                     .header {
                         color: $main-color;

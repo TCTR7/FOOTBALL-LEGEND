@@ -19,7 +19,7 @@ import {
     faVectorSquare,
     faCubes,
     faRadiation,
-    faTableCells
+    faTableCells,
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -38,7 +38,8 @@ library.add(
     faVectorSquare,
     faCubes,
     faRadiation,
-    faTableCells
+    faTableCells,
+    faBell
 )
 
 export { FontAwesomeIcon, library };
