@@ -108,7 +108,7 @@ export default {
 
         .item {
             padding: 15px;
-            max-width: 300px;
+            max-width: 350px;
         }
 
         .left {

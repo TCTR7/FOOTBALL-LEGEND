@@ -14,7 +14,7 @@
 </template>
 <script>
 import { toRefs } from 'vue'
-import watchingProp from '@/hooks/watchingProp'
+import useState from '@/hooks/useState'
 export default {
     name: 'home-card-component',
     props: {
@@ -31,10 +31,10 @@ export default {
     },
     setup(props) {
         const { itemDescription, iconInfo, competitionFormat, backgroundImageName } = toRefs(props)
-        const description = watchingProp(itemDescription)
-        const icon = watchingProp(iconInfo)
-        const competitionFormatInformation = watchingProp(competitionFormat)
-        const imageName = watchingProp(backgroundImageName)
+        const description = useState(itemDescription)
+        const icon = useState(iconInfo)
+        const competitionFormatInformation = useState(competitionFormat)
+        const imageName = useState(backgroundImageName)
         const imagePath = require(`../../assets/images/sports/${imageName.value}.jpg`)
         const customStyle = {backgroundImage: `url(${imagePath})`}
         return {

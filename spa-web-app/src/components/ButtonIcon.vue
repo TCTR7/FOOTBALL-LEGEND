@@ -6,7 +6,7 @@
 </template>
 <script>
 import { toRefs } from 'vue'
-import watchingProp from '@/hooks/watchingProp'
+import useState from '@/hooks/useState'
 export default {
     name: 'button-icon-component',
     props: {
@@ -15,8 +15,8 @@ export default {
     },
     setup(props) {
         const { iconInfo, btnName } = toRefs(props)
-        const iconInformation = watchingProp(iconInfo)
-        const buttonName = watchingProp(btnName)
+        const iconInformation = useState(iconInfo)
+        const buttonName = useState(btnName)
 
         return {
             iconInformation,

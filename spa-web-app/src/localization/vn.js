@@ -53,5 +53,13 @@ export default {
     winner_bracket_loser_bracket_desc: "Là biến thể khác của thể thức đấu loại trực tiếp. Với thể thức này thì các đội bị thua sẽ tiếp tục được đấu với nhau ở một nhánh đấu được gọi là Nhánh Thua",
     robin_phase_knockout_desc: "Kết hợp hai giai đoạn vào một giải đấu, bao gồm giai đoạn một đấu vòng tròn và giai đoạn hai loại trực tiếp hoặc nhánh thắng - nhánh thua.",
     group_stage_desc: "Có hai giai đoạn đó là giai đoạn một chia thành nhiều bảng đấu và giai đoạn hai là loại trực tiếp hoặc nhánh thắng - nhánh thua.",
-    social_label: "Sử dụng tài khoản mạng xã hội" // need to translate to english from here
+    social_label: "Sử dụng tài khoản mạng xã hội", // need to translate to english from here
+    register_email_label: "Đăng ký với email",
+    email_address: "Địa chỉ Email",
+    password: "Mật khẩu",
+    confirm_password: "Nhập lại mật khẩu",
+    and:" và ",
+    confirm_policy_desc_1: "Bằng cách nhấp vào Đăng ký, bạn cho biết rằng bạn đã đọc hiểu và đồng ý với ",
+    confirm_policy_desc_2: " của chúng tôi.",
+    confirm_had_account: "Bạn đã có tài khoản?"
 };

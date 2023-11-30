@@ -18,7 +18,7 @@
 </template>
 <script>
 import { toRefs } from 'vue'
-import watchingProp from '@/hooks/watchingProp'
+import useState from '@/hooks/useState'
 export default {
     name: 'home-tournament-stage-component',
     props: {
@@ -41,10 +41,10 @@ export default {
     },
     setup(props) {
         const { visible, numberOfStage, stage, introduction } = toRefs(props)
-        const isVisible = watchingProp(visible)
-        const stageNumber = watchingProp(numberOfStage)
-        const stageInfor = watchingProp(stage)
-        const introductionInfo = watchingProp(introduction)
+        const isVisible = useState(visible)
+        const stageNumber = useState(numberOfStage)
+        const stageInfor = useState(stage)
+        const introductionInfo = useState(introduction)
         console.log("introductionInfo: ", introductionInfo.value)
         return {
             isVisible,

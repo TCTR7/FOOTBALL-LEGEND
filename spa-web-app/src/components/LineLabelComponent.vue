@@ -7,7 +7,7 @@
 </template>
 <script>
 import { toRefs } from 'vue'
-import watchingProp from '@/hooks/watchingProp'
+import useState from '@/hooks/useState'
 export default {
     name: 'line-label-component',
     props: {
@@ -15,7 +15,7 @@ export default {
     },
     setup(props) {
         const { labelContent } = toRefs(props)
-        const content = watchingProp(labelContent)
+        const content = useState(labelContent)
 
         return {
             content

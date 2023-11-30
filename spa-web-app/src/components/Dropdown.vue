@@ -12,7 +12,7 @@
 </template>
 <script>
 import { ref, toRefs } from "vue"
-import watchingProp from "@/hooks/watchingProp";
+import useState from "@/hooks/useState";
 export default {
     name: 'dropdown-component',
     props: {
@@ -20,7 +20,7 @@ export default {
     },
     setup(props) {
         const { infos } = toRefs(props);
-        const dropdownInfos = watchingProp(infos)
+        const dropdownInfos = useState(infos)
 
         const dropdownRef = ref(null);
         const isVisibleMenu = ref(false)

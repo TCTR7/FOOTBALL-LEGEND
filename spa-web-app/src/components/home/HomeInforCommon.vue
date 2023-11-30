@@ -6,7 +6,7 @@
 </template>
 <script>
 import { toRefs } from 'vue'
-import watchingProp from '@/hooks/watchingProp'
+import useState from '@/hooks/useState'
 export default {
     name: 'home-info-common-component',
     props: {
@@ -15,8 +15,8 @@ export default {
     },
     setup(props) {
         const { title, numberOfDetail } = toRefs(props)
-        const titleInfo = watchingProp(title)
-        const statistics = watchingProp(numberOfDetail)
+        const titleInfo = useState(title)
+        const statistics = useState(numberOfDetail)
         return {
             titleInfo,
             statistics

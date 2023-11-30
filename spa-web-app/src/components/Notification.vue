@@ -28,8 +28,8 @@
 import { ref, toRefs } from 'vue';
 import { useStore } from 'vuex';
 import RouterConstants from "@/constants/RouterConstants"
-import watchingProp from '@/hooks/watchingProp';
-import watchingVuexState from '@/hooks/watchingVuexState'
+import useState from '@/hooks/useState';
+import useVuexState from '@/hooks/useVuexState'
 export default {
     name: 'notification-component',
     props: {
@@ -37,19 +37,19 @@ export default {
     },
     setup(props) {
         const { showContent } = toRefs(props);
-        const isShowContent = watchingProp(showContent)
+        const isShowContent = useState(showContent)
         // TODO - handle vuex
         const store = useStore()
 
         const routers = ref(RouterConstants)
 
-        const isNotificationActive = watchingVuexState('notification/isNotificationActive');
+        const isNotificationActive = useVuexState('notification/isNotificationActive');
 
-        const notificationLength = watchingVuexState('notification/notificationLength');
+        const notificationLength = useVuexState('notification/notificationLength');
 
-        const notifications = watchingVuexState('notification/notifications');
+        const notifications = useVuexState('notification/notifications');
 
-        const isUnreadNotify = watchingVuexState('notification/isUnreadNotifycations');
+        const isUnreadNotify = useVuexState('notification/isUnreadNotifycations');
 
         function confirmNotificationHaveRead(event) {
             event.preventDefault()

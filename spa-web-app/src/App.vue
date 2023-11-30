@@ -62,4 +62,16 @@ export default {
   align-items: center;
 }
 
+.form-control {
+  background-color: #fff;
+  border: 1px solid #dce4ec;
+  border-radius: 4px;
+  font-size: 15px;
+  height: 34px;
+  padding: 7px 10px;
+  box-shadow: none;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  width: 100%;
+}
+
 </style>

@@ -1,7 +1,7 @@
 import {ref, watch, onBeforeUnmount } from 'vue'
 import { useStore } from 'vuex'
 
-export default function watchingVuexState(stateKey) {
+export default function useVuexState(stateKey) {
     const store = useStore()
 
     const stateRef = ref(store.getters[stateKey]);
