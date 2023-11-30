@@ -1,7 +1,7 @@
 <template>
     <div class="register-wrapper box-center">
         <div class="container">
-            <div class="register-title box-center">Đăng ký</div>
+            <div class="register-title box-center">{{$t('nav_register')}}</div>
             <div class="register-content">
                 <div class="register-by-social">
                     <LineLabelComponent :labelContent="$t('social_label')" />
@@ -25,7 +25,7 @@
                         <input id="confirm-password" type="password" class="form-control" v-model="confirmPassword">
                     </div>
                 </div>
-                <button class="btn submit-btn" type="submit">{{ $t('nav_login') }}</button>
+                <button class="btn submit-btn" type="submit" @click="onRegisterSubmitHandle">{{ $t('nav_register') }}</button>
                 <p class="confirm-policy-desc">
                     {{ $t('confirm_policy_desc_1') }}
                     <router-link class="link main-color" to="/">{{ $t('terms_of_user') }}</router-link>
@@ -57,10 +57,17 @@ export default {
         const password = useState('')
         const confirmPassword = useState('')
 
+        function onRegisterSubmitHandle() {
+            console.log("email: ", email.value)
+            console.log("password: ", password.value)
+            console.log("confirmPassword: ", confirmPassword.value)
+        }
+
         return {
             email,
             password,
-            confirmPassword
+            confirmPassword,
+            onRegisterSubmitHandle
         }
     }
 }

@@ -61,5 +61,8 @@ export default {
     and:" và ",
     confirm_policy_desc_1: "Bằng cách nhấp vào Đăng ký, bạn cho biết rằng bạn đã đọc hiểu và đồng ý với ",
     confirm_policy_desc_2: " của chúng tôi.",
-    confirm_had_account: "Bạn đã có tài khoản?"
+    confirm_had_account: "Bạn đã có tài khoản?",
+    have_not_account_yet: "Bạn chưa có tài khoản?",
+    forgot_password: "Quên mật khẩu?",
+    remember_account: "Nhớ mật khẩu của tôi"
 };

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <component :is="layout">
-      {{ console.log("layout 1: ", layout) }}
       <router-view :key="route.fullPath" />
     </component>
   </div>
@@ -13,7 +12,6 @@ import { computed } from "vue"
 export default {
   setup() {
     const route = useRoute()
-    console.log("layout 0: ", route.meta.layout)
     const layout = computed(() => {
       return route.meta.layout
     })

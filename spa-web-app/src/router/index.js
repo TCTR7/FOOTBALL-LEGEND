@@ -74,10 +74,10 @@ const router = createRouter({
             name: RouterConstants.LOGIN_VIEW_NAME,
             component: LoginView,
             meta: {
-                layout: SystemConstants.LOGIN_LAYOUT,
+                layout: SystemConstants.DEFAULT_LAYOUT,
                 title: 'Login-View'
             },
-            beforeEnter: setLayoutForRoute(SystemConstants.LOGIN_LAYOUT)
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT)
         },
         {
             path: '/' + RouterConstants.REGISTER_VIEW_NAME,
