@@ -4,6 +4,7 @@ import BlogView from '@/views/BlogView.vue'
 import PricingView from '@/views/PricingView.vue'
 import ShopsView from '@/views/ShopsView.vue'
 import LoginView from '@/views/LoginView.vue'
+import RegisterView from '@/views/RegisterView.vue'
 import NotificationView from '@/views/NotificationView.vue'
 import SystemConstants from '@/constants/SystemConstants';
 import RouterConstants from '@/constants/RouterConstants';
@@ -81,12 +82,12 @@ const router = createRouter({
         {
             path: '/' + RouterConstants.REGISTER_VIEW_NAME,
             name: RouterConstants.REGISTER_VIEW_NAME,
-            component: LoginView,
+            component: RegisterView,
             meta: {
-                layout: SystemConstants.LOGIN_LAYOUT,
+                layout: SystemConstants.DEFAULT_LAYOUT,
                 title: 'Register-View'
             },
-            beforeEnter: setLayoutForRoute(SystemConstants.LOGIN_LAYOUT)
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT)
         }
     ]
 })

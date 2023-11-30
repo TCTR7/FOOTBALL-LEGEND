@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import {
     faFacebook,
-    faInstagram
+    faInstagram,
+    faGoogle
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
@@ -19,7 +20,7 @@ import {
     faVectorSquare,
     faCubes,
     faRadiation,
-    faTableCells,
+    faTableCells
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -39,7 +40,8 @@ library.add(
     faCubes,
     faRadiation,
     faTableCells,
-    faBell
+    faBell,
+    faGoogle
 )
 
 export { FontAwesomeIcon, library };

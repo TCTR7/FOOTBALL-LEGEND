@@ -13,17 +13,17 @@
                             <router-link class="link item-content box-center" :to="{ name: routerConstant.HOME_VIEW_NAME }">{{
                                 $t('home') }}</router-link>
                         </div>
-                        <div class="nav-content-item box-center nav-dropdown" :class="isNavActive ? 'active' : ''">
+                        <div class="nav-content-item box-center nav-dropdown tournament" :class="isNavActive ? 'active' : ''">
                             <Dropdown :infos="dropdownConstant.TOURNAMENT_MENU" />
                         </div>
-                        <div class="nav-content-item box-center nav-dropdown" :class="isNavActive ? 'active' : ''">
+                        <div class="nav-content-item box-center nav-dropdown teams" :class="isNavActive ? 'active' : ''">
                             <Dropdown :infos="dropdownConstant.TEAM_MENU" />
                         </div>
                         <div class="nav-content-item box-center" :class="isNavActive ? 'active' : ''">
                             <router-link class="link item-content box-center" :to="{ name: routerConstant.PRICE_LIST_VIEW_NAME }">{{
                                 $t('nav_pricing') }}</router-link>
                         </div>
-                        <div class="nav-content-item box-center">
+                        <div class="nav-content-item box-center blog">
                             <router-link class="link item-content box-center" :to="{ name: routerConstant.BLOG_VIEW_NAME }">{{
                                 $t('nav_blog') }}</router-link>
                         </div>
@@ -36,7 +36,7 @@
                                 $t('nav_login') }}</router-link>
                         </div>
                         <div class="nav-content-item box-center" v-if="!isLogged">
-                            <button class="register-btn btn item-content box-center">{{ $t('nav_register') }}</button>
+                            <router-link class="link register-btn btn item-content box-center" :to="{ name: routerConstant.REGISTER_VIEW_NAME }">{{ $t('nav_register') }}</router-link>
                         </div>
                         <div class="nav-content-item box-center nav-dropdown" style="margin-right: 20px;"
                             :class="isNavActive ? 'active' : ''" v-if="isLogged">
@@ -46,7 +46,7 @@
                             <Notification :showContent="isShowNotifyContent" />
                             <font-awesome-icon :icon="['fa', 'caret-down']" class="caret-down" />
                         </div>
-                        <LanguagueDropdown class="nav-dropdown" />
+                        <LanguagueDropdown class="nav-dropdown"/>
                     </ul>
                 </div>
             </div>
@@ -128,11 +128,13 @@ export default {
             justify-content: space-between;
             height: 100%;
             padding: 10px;
+            position: relative;
 
             .branding {
                 height: 100%;
                 width: 150px;
-                margin-left: 20px;
+                position: absolute;
+                left: 20px;
 
                 .branding-icon {
                     width: 100%;
@@ -142,8 +144,9 @@ export default {
 
             .nav-content {
                 height: 100%;
-                margin-right: 0;
-                margin-left: 550px;
+                position: absolute;
+                right: 0px;
+                max-width: 60%;
 
                 ul {
                     display: flex;
@@ -154,6 +157,14 @@ export default {
                     .nav-dropdown {
                         position: relative;
                         color: white;
+                    }
+
+                    .tournament, .teams {
+                        min-width: 6rem;
+                    }
+
+                    .blog {
+                        max-width: 40px;
                     }
 
                     .inform {

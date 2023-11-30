@@ -94,18 +94,21 @@ export default {
 @import "../../public/assets/scss/common.scss";
 
 .footer-wraper {
-    height: 300px;
+    max-height: 300px;
     margin-top: 60px;
 
     .wrapper {
         background-color: #fff;
         position: relative;
-        padding: 50px 200px;
+        padding: 20px 0;
         color: $main-color;
         display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
 
         .item {
             padding: 15px;
+            max-width: 300px;
         }
 
         .left {
@@ -144,6 +147,7 @@ export default {
         .center {
             text-align: center;
             color: black;
+            max-width: 350px !important;
 
             .center-container {
                 flex-direction: column;

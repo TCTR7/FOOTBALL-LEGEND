@@ -1,8 +1,8 @@
 <template>
-    <div class="dropdown" ref="dropdownRef" @click="showDropdownMenu">
-        <div class="dropdown-title box-center">
+    <div class="dropdown box-center" ref="dropdownRef" @click="showDropdownMenu">
+        <div class="dropdown-title">
             <p class="box-center" style="white-space: nowrap;">{{ $t(dropdownInfos.title ? dropdownInfos.title : "Trần Cao Trung") }}</p>
-            <font-awesome-icon :icon="['fa', 'caret-down']" style="margin-left: 5px;"/>
+            <font-awesome-icon :icon="['fa', 'caret-down']" style="width: 10px;margin-left: 5px; margin-top: 3px;"/>
         </div>
         <ul class="dropdown-menu" v-if="isVisibleMenu">
             <router-link class="item link" v-for="(item, index) in dropdownInfos.menu" :key="index"
@@ -11,7 +11,8 @@
     </div>
 </template>
 <script>
-import { ref, watch, toRefs } from "vue"
+import { ref, toRefs } from "vue"
+import watchingProp from "@/hooks/watchingProp";
 export default {
     name: 'dropdown-component',
     props: {
@@ -19,9 +20,9 @@ export default {
     },
     setup(props) {
         const { infos } = toRefs(props);
-        const dropdownRef = ref(null);
+        const dropdownInfos = watchingProp(infos)
 
-        const dropdownInfos = ref(infos.value)
+        const dropdownRef = ref(null);
         const isVisibleMenu = ref(false)
 
         function showDropdownMenu(event) {
@@ -35,10 +36,6 @@ export default {
                 isVisibleMenu.value = false
             }
         }
-
-        watch(() => props.infos, (newValue) => {
-            dropdownInfos.value = newValue;
-        });
 
         return {
             isVisibleMenu,
@@ -62,12 +59,17 @@ export default {
 @import "../../public/assets/scss/common.scss";
 
 .dropdown {
-    display: block;
+    
 
     .dropdown-title {
         cursor: pointer;
         padding: 2px;
         color: white;
+        display: flex;
+
+        font-awesome-icon {
+            
+        }
 
         &:hover {
             color: rgba(230, 228, 228, 0.5);

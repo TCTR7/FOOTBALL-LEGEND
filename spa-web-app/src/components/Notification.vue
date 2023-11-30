@@ -25,47 +25,36 @@
     </div>
 </template>
 <script>
-import { computed, ref, watch, toRefs } from 'vue';
+import { ref, toRefs } from 'vue';
 import { useStore } from 'vuex';
 import RouterConstants from "@/constants/RouterConstants"
+import watchingProp from '@/hooks/watchingProp';
+import watchingVuexState from '@/hooks/watchingVuexState'
 export default {
     name: 'notification-component',
     props: {
         showContent: Boolean
     },
     setup(props) {
+        const { showContent } = toRefs(props);
+        const isShowContent = watchingProp(showContent)
         // TODO - handle vuex
         const store = useStore()
-        const { showContent } = toRefs(props);
-
-        const isShowContent = ref(showContent.value)
 
         const routers = ref(RouterConstants)
 
-        const isNotificationActive = computed(() => {
-            return store.getters['notification/isNotificationActive'];
-        });
+        const isNotificationActive = watchingVuexState('notification/isNotificationActive');
 
-        const notificationLength = computed(() => {
-            return store.getters['notification/notificationLength'];
-        });
+        const notificationLength = watchingVuexState('notification/notificationLength');
 
-        const notifications = computed(() => {
-            return store.getters['notification/notifications'];
-        });
+        const notifications = watchingVuexState('notification/notifications');
 
-        const isUnreadNotify = computed(() => {
-            return store.getters['notification/isUnreadNotifycations'];
-        });
+        const isUnreadNotify = watchingVuexState('notification/isUnreadNotifycations');
 
         function confirmNotificationHaveRead(event) {
             event.preventDefault()
             store.commit('notification/confirmThatNotificationHaveRead')
         }
-
-        watch(() => props.showContent, (newValue) => {
-            isShowContent.value = newValue
-        })
 
         return {
             isNotificationActive,

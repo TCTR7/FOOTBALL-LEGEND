@@ -1,7 +1,7 @@
 <template>
     <div id="default-layout" class="default-layout">
         <Navigation />
-        <div id="App-Content" style="flex-grow: 1;">
+        <div id="App-Content" style="flex-grow: 1; margin-top: 60px;">
             <slot style="flex-grow: 1;"/>
         </div>
         <Footer />
