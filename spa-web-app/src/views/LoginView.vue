@@ -1,7 +1,7 @@
 <template>
     <div class="register-wrapper box-center">
         <div class="container">
-            <div class="register-title box-center">{{ $t('nav_login') }}</div>
+            <div class="register-title box-center main-color">{{ $t('nav_login') }}</div>
             <div class="register-content">
                 <div class="register-by-social">
                     <div class="social-buttons">
@@ -24,7 +24,7 @@
                         <input type="checkbox">
                         <span>{{ $t('remember_account') }}</span>
                     </label>
-                    <router-link class="link text" to="/">{{ $t('forgot_password') }}</router-link>
+                    <router-link class="link text main-color" to="/">{{ $t('forgot_password') }}</router-link>
                 </div>
                 <button class="btn submit-btn" type="submit" @click="onLoginSubmitHandle">{{ $t('nav_login') }}</button>
             </div>
@@ -80,15 +80,10 @@ $border-color: rgba(183, 182, 182, 0.3);
         display: flex;
         flex-direction: column;
 
-        .main-color {
-            color: $main-color
-        }
-
         .register-title {
             border-bottom: 1px solid $border-color;
             font-size: 23px;
             font-weight: 300;
-            color: $main-color;
         }
 
         .register-content {
@@ -138,7 +133,6 @@ $border-color: rgba(183, 182, 182, 0.3);
 
                 .text {
                     text-align: right;
-                    color: $main-color;
                 }
             }
 

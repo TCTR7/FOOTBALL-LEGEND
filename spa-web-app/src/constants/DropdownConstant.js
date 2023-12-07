@@ -5,12 +5,14 @@ export const DropdownConstant = Object.freeze({
         title: "nav_tournament",
         menu: [
             {
-                name: "nav_create_tournament",
+                title: "nav_create_tournament",
                 path: RouterConstants.LEAGUE_VIEW_NAME + '/' + RouterConstants.CREATE_TOURNAMENT_VIEW_NAME,
+                name: RouterConstants.CREATE_TOURNAMENT_VIEW_NAME
             },
             {
-                name: "nav_find_tournament",
+                title: "nav_find_tournament",
                 path: RouterConstants.LEAGUE_VIEW_NAME,
+                name: RouterConstants.LEAGUE_VIEW_NAME
             },
         ],
     },
@@ -18,16 +20,19 @@ export const DropdownConstant = Object.freeze({
         title: "nav_team",
         menu: [
             {
-                name: "nav_create_team",
+                title: "nav_create_team",
                 path: RouterConstants.COMPETITOR_VIEW_NAME + '/' + RouterConstants.COMPETITOR_CREATE_VIEW_NAME,
+                name: RouterConstants.COMPETITOR_CREATE_VIEW_NAME
             },
             {
-                name: "nav_find_team",
+                title: "nav_find_team",
                 path: RouterConstants.COMPETITOR_VIEW_NAME,
+                name: RouterConstants.COMPETITOR_VIEW_NAME
             },
             {
-                name: "nav_create_lineup",
+                title: "nav_create_lineup",
                 path: RouterConstants.LINEUP_VIEW_NAME,
+                name: RouterConstants.LINEUP_VIEW_NAME
             }
         ],
     },

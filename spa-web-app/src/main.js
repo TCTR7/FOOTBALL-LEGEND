@@ -12,7 +12,6 @@ import CountryFlag from 'vue-country-flag-next'
 import i18n from './localization'
 import store from './store'
 
-
 const app = createApp(App);
 app.config.globalProperties.$fontAwesome = { library };
 app.component(SystemConstants.DEFAULT_LAYOUT, DefaultLayout)

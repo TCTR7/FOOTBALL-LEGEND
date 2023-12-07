@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <component :is="layout">
       <router-view :key="route.fullPath" />
     </component>
@@ -23,7 +23,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "../public//assets/scss/common.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -70,6 +72,10 @@ export default {
   box-shadow: none;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   width: 100%;
+}
+
+.main-color {
+  color: $main-color
 }
 
 </style>

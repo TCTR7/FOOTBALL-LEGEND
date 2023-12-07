@@ -33,11 +33,12 @@ import useVuexState from '@/hooks/useVuexState'
 export default {
     name: 'notification-component',
     props: {
-        showContent: Boolean
+        isVisibleMenu: Boolean
     },
     setup(props) {
-        const { showContent } = toRefs(props);
-        const isShowContent = useState(showContent)
+        const { isVisibleMenu } = toRefs(props);
+        const isShowContent = useState(isVisibleMenu)
+        console.log("notification isVisible: ", isShowContent.value)
         // TODO - handle vuex
         const store = useStore()
 
@@ -65,7 +66,10 @@ export default {
             isUnreadNotify,
             confirmNotificationHaveRead
         }
-    }
+    },
+    mounted() {
+        console.log("mounted language-dropdown isShowContent: ", this.isShowContent)
+    },
 }
 </script>
 <style lang="scss" scoped>

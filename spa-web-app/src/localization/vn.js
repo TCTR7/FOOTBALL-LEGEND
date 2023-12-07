@@ -64,5 +64,7 @@ export default {
     confirm_had_account: "Bạn đã có tài khoản?",
     have_not_account_yet: "Bạn chưa có tài khoản?",
     forgot_password: "Quên mật khẩu?",
-    remember_account: "Nhớ mật khẩu của tôi"
+    remember_account: "Nhớ mật khẩu của tôi",
+    create_league_require_inform: "Vui lòng nhập thông tin hợp lệ cho các trường hợp yêu cầu",
+    introduction: "Hướng dẫn"
 };

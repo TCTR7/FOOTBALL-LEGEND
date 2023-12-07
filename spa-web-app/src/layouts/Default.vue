@@ -1,7 +1,7 @@
 <template>
-    <div id="default-layout" class="default-layout">
+    <div class="default-layout-wrapper">
         <Navigation />
-        <div id="App-Content" style="flex-grow: 1; margin-top: 60px;">
+        <div style="flex-grow: 1; margin-top: 60px;">
             <slot style="flex-grow: 1;"/>
         </div>
         <Footer />
@@ -11,7 +11,7 @@
 import Navigation from '../components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 export default {
-    name: 'default-layout',
+    name: 'default-layout-component',
     components: {
         Navigation,
         Footer
@@ -19,12 +19,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.default-layout {
+.default-layout-wrapper {
     display: flex;
     flex-direction: column;
     color: #596377;
     font-size: 15px;
-    font-family: Lato,sans-serif;
+    font-family: Lato, sans-serif;
     font-weight: 400;
     height: 100%;
     line-height: 1.428571429;

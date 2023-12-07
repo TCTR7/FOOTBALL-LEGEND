@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import CreateLeagueView from '@/views/CreateLeagueView.vue'
+import LeagueView from '@/views/LeagueView.vue'
+import TeamView from '@/views/TeamView.vue'
+import CreateTeamView from '@/views/CreateTeamView.vue'
+import CreateLineupView from '@/views/CreateLineupView.vue'
 import BlogView from '@/views/BlogView.vue'
 import PricingView from '@/views/PricingView.vue'
 import ShopsView from '@/views/ShopsView.vue'
@@ -88,6 +93,56 @@ const router = createRouter({
                 title: 'Register-View'
             },
             beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT)
+        },
+        {
+            path: '/' + RouterConstants.LEAGUE_VIEW_NAME,
+            name: RouterConstants.LEAGUE_VIEW_NAME,
+            component: LeagueView,
+            meta: {
+                layout: SystemConstants.DEFAULT_LAYOUT,
+                title: 'league'
+            },
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT),
+        },
+        {
+            path: '/' + RouterConstants.LEAGUE_VIEW_NAME + '/' + RouterConstants.CREATE_TOURNAMENT_VIEW_NAME,
+            name: RouterConstants.CREATE_TOURNAMENT_VIEW_NAME,
+            component: CreateLeagueView,
+            meta: {
+                layout: SystemConstants.DEFAULT_LAYOUT,
+                title: 'create-tournament'
+            },
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT),
+        },
+        {
+            path: '/' + RouterConstants.COMPETITOR_VIEW_NAME,
+            name: RouterConstants.COMPETITOR_VIEW_NAME,
+            component: TeamView,
+            meta: {
+                layout: SystemConstants.DEFAULT_LAYOUT,
+                title: 'competitor'
+            },
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT),
+        },
+        {
+            path: '/' + RouterConstants.COMPETITOR_VIEW_NAME + '/' + RouterConstants.COMPETITOR_CREATE_VIEW_NAME,
+            name: RouterConstants.COMPETITOR_CREATE_VIEW_NAME,
+            component: CreateTeamView,
+            meta: {
+                layout: SystemConstants.DEFAULT_LAYOUT,
+                title: 'create-competitor'
+            },
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT),
+        },
+        {
+            path: '/' + RouterConstants.LINEUP_VIEW_NAME,
+            name: RouterConstants.LINEUP_VIEW_NAME,
+            component: CreateLineupView,
+            meta: {
+                layout: SystemConstants.DEFAULT_LAYOUT,
+                title: 'lineup'
+            },
+            beforeEnter: setLayoutForRoute(SystemConstants.DEFAULT_LAYOUT),
         }
     ]
 })
