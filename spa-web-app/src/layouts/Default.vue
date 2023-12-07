@@ -1,7 +1,8 @@
 <template>
-    <div class="default-layout-wrapper">
+    
+    <div class="default-layout">
         <Navigation />
-        <div style="flex-grow: 1; margin-top: 60px;">
+        <div id="App-Content">
             <slot style="flex-grow: 1;"/>
         </div>
         <Footer />
@@ -19,12 +20,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.default-layout-wrapper {
+.default-layout {
     display: flex;
     flex-direction: column;
     color: #596377;
     font-size: 15px;
-    font-family: Lato, sans-serif;
+    font-family: Lato,sans-serif;
     font-weight: 400;
     height: 100%;
     line-height: 1.428571429;
