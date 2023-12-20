@@ -27,7 +27,6 @@ export default {
         const languages = ref(i18n.global.availableLocales)
         const { isVisibleMenu } = toRefs(props);
         const isVisible = useState(isVisibleMenu)
-        console.log("language-dropdown isVisible: ", isVisible.value)
 
 
         function changeLanguage(newLanguage) {
@@ -41,10 +40,7 @@ export default {
             currentLanguage,
             changeLanguage
         }
-    },
-    mounted() {
-        console.log("mounted language-dropdown isVisible: ", this.isVisible)
-    },
+    }
 }
 </script>
 <style lang="scss" scoped>

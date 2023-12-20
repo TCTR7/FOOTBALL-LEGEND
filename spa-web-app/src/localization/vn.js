@@ -66,5 +66,10 @@ export default {
     forgot_password: "Quên mật khẩu?",
     remember_account: "Nhớ mật khẩu của tôi",
     create_league_require_inform: "Vui lòng nhập thông tin hợp lệ cho các trường hợp yêu cầu",
-    introduction: "Hướng dẫn"
+    introduction: "Hướng dẫn",
+    drag_drop_intro: "Drag and drop your files\n here to upload\nOR",
+    file_upload: "File Upload",
+    browse_file: "Browse Files",
+    file_upload_support_type: "Supported file types: png, pdf, etc. (<5mb)",
+    no_file_attached: "No files attached - please upload a file to continue"
 };

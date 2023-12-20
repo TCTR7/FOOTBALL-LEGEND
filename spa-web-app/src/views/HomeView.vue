@@ -155,7 +155,6 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: black;
-    margin-top: 50px;
 
     .section {
         width: 100%;

@@ -13,10 +13,8 @@ export default {
         const isVisibleMenu = ref(false)
 
         function showDropdownMenu(event) {
-            console.log("isVisibleMenu: ", isVisibleMenu.value)
             event.preventDefault()
             isVisibleMenu.value = !isVisibleMenu.value
-            console.log("isVisibleMenu: ", isVisibleMenu.value)
         }
 
         function closeDropdowns(event) {

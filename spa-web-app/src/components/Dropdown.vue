@@ -24,16 +24,11 @@ export default {
         const dropdownInfos = useState(infos)
         const isVisible = useState(isVisibleMenu)
 
-        console.log("Drop down isVisible: ", isVisible.value)
-
         return {
             dropdownInfos,
             isVisible
         }
-    },
-    mounted() {
-        console.log("mounted language-dropdown isVisible: ", this.isVisible)
-    },
+    }
 }
 </script>
 <style lang="scss" scoped>

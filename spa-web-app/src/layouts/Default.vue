@@ -1,8 +1,7 @@
 <template>
-    
     <div class="default-layout">
         <Navigation />
-        <div id="App-Content">
+        <div id="App-Content" class="app-content">
             <slot style="flex-grow: 1;"/>
         </div>
         <Footer />
@@ -31,5 +30,9 @@ export default {
     line-height: 1.428571429;
     margin: 0;
     position: relative;
+
+    .app-content {
+        margin-top: 60px;
+    }
 }
 </style>

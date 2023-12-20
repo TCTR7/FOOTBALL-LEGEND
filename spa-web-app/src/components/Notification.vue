@@ -38,7 +38,6 @@ export default {
     setup(props) {
         const { isVisibleMenu } = toRefs(props);
         const isShowContent = useState(isVisibleMenu)
-        console.log("notification isVisible: ", isShowContent.value)
         // TODO - handle vuex
         const store = useStore()
 
@@ -66,10 +65,7 @@ export default {
             isUnreadNotify,
             confirmNotificationHaveRead
         }
-    },
-    mounted() {
-        console.log("mounted language-dropdown isShowContent: ", this.isShowContent)
-    },
+    }
 }
 </script>
 <style lang="scss" scoped>

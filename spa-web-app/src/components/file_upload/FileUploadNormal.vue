@@ -1,15 +1,36 @@
 <template>
-  <FileUploadNormal />
+  <div class="upload-wrapper box-center">
+    <div class="file-upload-container box-center">
+      <p class="file-upload-title fu-subitem">{{ $t('file_upload') }}</p>
+      <p class="file-upload-desc fu-subitem">{{ $t('file_upload_support_type') }}</p>
+      <DropZone @files-dropped="addFiles">
+        <div class="file-upload-main-content fu-subitem box-center">
+          <pre class="drag-drop-intro">{{ $t('drag_drop_intro') }}</pre>
+          <div class="upload-button box-center" @click="onFileUploadClickHandle">
+            <input type="file" multiple id="uploadFile" style="display:none;" @change="onUploadFileChangeHandle" />
+            <font-awesome-icon :icon="['fa', 'upload']" class="upload-icon" />
+            <span>{{ $t('browse_file') }}</span>
+          </div>
+        </div>
+      </DropZone>
+      <p class="fu-subitem" v-show="!files.length">{{ $t('no_file_attached') }}</p>
+      <ul class="file-upload-information fu-subitem" v-show="files.length">
+        <FilePreview v-for="file in files" :key="file.id" :file="file" :tag="li"/>
+      </ul>
+    </div>
+  </div>
 </template>
 <script>
-// import { ref } from 'vue';
-import FileUploadNormal from "@/components/file_upload/FileUploadNormal.vue"
+import DropZone from '@/components/file_upload/DropZone.vue'
+import useFileList from "./file-list"
+import FilePreview from "@/components/FilePreview.vue"
 export default {
   components: {
-    FileUploadNormal
+    DropZone,
+    FilePreview
   },
   setup() {
-
+    const { addFiles, files } = useFileList()
     const onFileUploadClickHandle = () => {
       document.getElementById("uploadFile").click();
       console.log("onFileUploadClickHandle")
@@ -17,17 +38,21 @@ export default {
 
     const onUploadFileChangeHandle = (event) => {
       console.log("onUploadFileChangeHandle: ", event.target.files)
+      addFiles(event.target.files)
+      event.target.value = null
     }
 
     return {
       onFileUploadClickHandle,
-      onUploadFileChangeHandle
+      onUploadFileChangeHandle,
+      addFiles,
+      files
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-@import "../../public/assets/scss/common.scss";
+@import "../../../public/assets/scss/common.scss";
 
 .upload-wrapper {
   height: 100%;
@@ -93,7 +118,14 @@ export default {
     }
 
     .file-upload-information {
+      width: 100%;
+      align-self: left;
       color: $main-color;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
   }
 }
